@@ -1,20 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const TvShowSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: true
     },
     season: {
-        type: String,
+        type: String
     },
     episode: {
-        type: String,
+        type: String
     },
     date: {
         type: Date,
-        default: Date.now,
-    },
-})
+        default: Date.now
+    }
+});
 
-module.exports = mongoose.model('tvshow', TvShowSchema)
+module.exports = mongoose.model('tvshow', TvShowSchema);
