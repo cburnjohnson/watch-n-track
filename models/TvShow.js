@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const TvShowSchema = mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
     name: {
         type: String,
         required: true
@@ -17,4 +21,4 @@ const TvShowSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('tvshow', TvShowSchema);
+module.exports = mongoose.model('tv show', TvShowSchema);
