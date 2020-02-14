@@ -69,7 +69,7 @@ router.delete('/:id', auth, async (req, res) => {
 
         if (!tvShow) return res.status(404).json({ msg: 'TV show not found.' });
 
-        // Make sure its the correct user
+        // Make sure the user owns the TV show
         if (tvShow.user.toString() !== req.user.id) {
             return res.status(401).json({ msg: 'Not authorized.' });
         }
@@ -82,5 +82,42 @@ router.delete('/:id', auth, async (req, res) => {
         res.status(500).json({ msg: 'Server Error' });
     }
 });
+
+// @route   PUT /api/tvshows/:id
+// @desc    Updates TV show
+// @access  Private
+router.put('/:id', auth, (req, res) => {
+    const {name, season, episode} = req.body;
+
+    // Build TV show object
+    const tvShowFields = {};
+    if (name) tvShowFields.name = name;
+    if (season) tvShowFields.season = season;
+    if (episode) tvShowFields.episode = episode;
+
+    try {
+        let tvShow = await TvShow.findById(req.params.id);
+
+        if (!tvShow) return res.status(404).json({msg: 'TV Show not found.'})
+
+        // Make sure the user owns the TV show
+        if (tvShow.user.toString() !== req.user.id) {
+            return res.status(401).json({msg: 'Not authorized'})
+        }
+
+        tvShow = await TvShow.findByIdAndUpdate(
+            req.params.id,
+            {
+                $set: tvShowFields
+            },
+            {new: true}
+        )
+
+        res.json(tvShow);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({msg: 'Server Error'})
+    }
+})
 
 module.exports = router;
