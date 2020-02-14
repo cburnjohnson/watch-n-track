@@ -7,7 +7,7 @@ const User = require('../models/User');
 const TvShow = require('../models/TvShow');
 
 // @route   GET /api/tvshows
-// @desc    Get all users Tv Shows
+// @desc    Get all users TV Shows
 // @access  Private
 router.get('/', auth, async (req, res) => {
     try {
@@ -22,7 +22,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route   POST /api/tvshows
-// @desc    Add new tv show
+// @desc    Add new TV show
 // @access  Private
 router.post(
     '/',
@@ -59,5 +59,28 @@ router.post(
         }
     }
 );
+
+// @route   DELETE /api/tvshows/:id
+// @desc    Deletes a TV show
+// @access  Private
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        let tvShow = await TvShow.findById(req.params.id);
+
+        if (!tvShow) return res.status(404).json({ msg: 'TV show not found.' });
+
+        // Make sure its the correct user
+        if (tvShow.user.toString() !== req.user.id) {
+            return res.status(401).json({ msg: 'Not authorized.' });
+        }
+
+        await TvShow.findByIdAndRemove(req.params.id);
+
+        res.json({ msg: 'TV Show removed.' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ msg: 'Server Error' });
+    }
+});
 
 module.exports = router;
