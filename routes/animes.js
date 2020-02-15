@@ -18,6 +18,11 @@ router.post('/', auth, (req, res) => {
     res.send('add new anime');
 });
 
-//
+// @route   DELETE /api/animes/:id
+// @desc    Delete an anime
+// @access  Private
+router.delete('/:id', auth, (req, res) => {
+    res.send('delete an anime');
+});
 
 module.exports = router;
