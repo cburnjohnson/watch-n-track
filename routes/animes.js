@@ -86,7 +86,34 @@ router.delete('/:id', auth, async (req, res) => {
 // @desc    Update an anime
 // @access  Private
 router.put('/:id', auth, (req, res) => {
-    res.send('updates an anime');
+    const {name, season, episode} = req.body;
+
+    // Build anime object
+    const animeFields = {}
+    if(name) animeFields.name = name;
+    if(season) animeFields.season = season;
+    if(episode) animeFields.episode = episode
+
+    try {
+        let anime = await Anime.findById(req.params.id);
+
+        if(!anime) res.status(404).json({msg: 'Anime not found.'})
+
+        // Check if user owns anime
+        if(anime.user.toString() !== req.user.id) {
+            return res.status(401).json({msg: 'Not authorized'})
+        }
+
+        anime = await Anime.findByIdAndUpdate(
+            req.params.id, 
+            {$set: animeFields}, 
+            {new: true})
+
+        res.json(anime);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({msg: 'Server Error'})
+    }
 });
 
 module.exports = router;
