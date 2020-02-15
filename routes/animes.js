@@ -23,9 +23,41 @@ router.get('/', auth, async (req, res) => {
 // @route   POST /api/animes
 // @desc    Add an anime
 // @access  Private
-router.post('/', auth, (req, res) => {
-    res.send('add new anime');
-});
+router.post(
+    '/',
+    [
+        auth,
+        [
+            check('name', 'Anime name is required.')
+                .not()
+                .isEmpty()
+        ]
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ msg: errors.array() });
+        }
+
+        const { name, season, episode } = req.body;
+
+        try {
+            const newAnime = new Anime({
+                name,
+                season,
+                episode,
+                user: req.user.id
+            });
+
+            const anime = await newAnime.save();
+
+            res.json(anime);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: 'Server Error' });
+        }
+    }
+);
 
 // @route   DELETE /api/animes/:id
 // @desc    Delete an anime
