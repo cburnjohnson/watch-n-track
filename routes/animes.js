@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
 const auth = require('../middleware/auth');
 
 const Anime = require('../models/Anime');
@@ -7,8 +8,16 @@ const Anime = require('../models/Anime');
 // @route   GET /api/animes
 // @desc    Get all user animes
 // @access  Private
-router.get('/', auth, (req, res) => {
-    res.send('get all animes');
+router.get('/', auth, async (req, res) => {
+    try {
+        const animes = await Anime.find({ user: req.user.id }).sort({
+            date: -1
+        });
+        res.json(animes);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ msg: 'Server Error' });
+    }
 });
 
 // @route   POST /api/animes
