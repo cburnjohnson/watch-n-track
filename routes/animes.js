@@ -25,4 +25,11 @@ router.delete('/:id', auth, (req, res) => {
     res.send('delete an anime');
 });
 
+// @route   PUT /api/animes/:id
+// @desc    Update an anime
+// @access  Private
+router.put('/:id', auth, (req, res) => {
+    res.send('updates an anime');
+});
+
 module.exports = router;
