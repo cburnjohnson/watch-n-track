@@ -11,7 +11,9 @@ const Movie = require('../models/Movie');
 // @access  Private
 router.get('/', auth, async (req, res) => {
     try {
-        const movies = await Movie.findById(req.user.id).sort({ date: -1 });
+        const movies = await Movie.find({ user: req.user.id }).sort({
+            date: -1
+        });
 
         res.json(movies);
     } catch (err) {
