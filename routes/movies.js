@@ -23,9 +23,39 @@ router.get('/', auth, async (req, res) => {
 // @route   POST /api/movies
 // @desc    Adds a new movie
 // @access  Private
-router.post('/', auth, async (req, res) => {
-    res.send('add new movie');
-});
+router.post(
+    '/',
+    [
+        auth,
+        [
+            check('name', 'Movie name is required.')
+                .not()
+                .isEmpty()
+        ]
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { name } = req.body;
+
+        try {
+            const newMovie = new Movie({
+                name,
+                user: req.user.id
+            });
+
+            const movie = await newMovie.save();
+
+            res.json(movie);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: 'Server Error' });
+        }
+    }
+);
 
 // @route   DELETE /api/movies/:id
 // @desc    Deletes a movie
