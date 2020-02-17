@@ -75,7 +75,7 @@ router.delete('/:id', auth, async (req, res) => {
 
         await Movie.findByIdAndRemove(req.params.id);
 
-        res.json({ msg: 'Movie deleted.' });
+        res.json({ msg: 'Movie deleted' });
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ msg: 'Server Error' });
@@ -86,7 +86,35 @@ router.delete('/:id', auth, async (req, res) => {
 // @desc    Updates a movie
 // @access  Private
 router.put('/:id', auth, async (req, res) => {
-    res.send('update movie');
+    const { name } = req.body;
+
+    // build a Movie object
+    const movieFields = {};
+    if (name) movieFields.name = name;
+
+    try {
+        let movie = await Movie.findById(req.params.id);
+
+        if (!movie) {
+            return res.status(404).json({ msg: 'Movie not found.' });
+        }
+
+        // Check if user owns movie
+        if (movie.user.toString() !== req.user.id) {
+            return res.status(401).json({ msg: 'Not authorized' });
+        }
+
+        movie = await Movie.findByIdAndUpdate(
+            req.params.id,
+            { $set: movieFields },
+            { new: true }
+        );
+
+        res.json(movie);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ msg: 'Server Error' });
+    }
 });
 
 module.exports = router;
