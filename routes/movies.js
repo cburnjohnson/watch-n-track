@@ -60,14 +60,32 @@ router.post(
 // @route   DELETE /api/movies/:id
 // @desc    Deletes a movie
 // @access  Private
-router.delete('/', auth, async (req, res) => {
-    res.send('delete a movie');
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        let movie = await Movie.findById(req.params.id);
+
+        if (!movie) {
+            return res.status(404).json({ msg: 'Movie not found.' });
+        }
+
+        // Check if user owns Movie
+        if (movie.user.toString() !== req.user.id) {
+            return res.status(401).json({ msg: 'Not authorized.' });
+        }
+
+        await Movie.findByIdAndRemove(req.params.id);
+
+        res.json({ msg: 'Movie deleted.' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ msg: 'Server Error' });
+    }
 });
 
 // @roue    PUT /api/movies/:id
 // @desc    Updates a movie
 // @access  Private
-router.put('/', auth, async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
     res.send('update movie');
 });
 
