@@ -86,8 +86,8 @@ router.delete('/:id', auth, async (req, res) => {
 // @route   PUT /api/tvshows/:id
 // @desc    Updates TV show
 // @access  Private
-router.put('/:id', auth, (req, res) => {
-    const {name, season, episode} = req.body;
+router.put('/:id', auth, async (req, res) => {
+    const { name, season, episode } = req.body;
 
     // Build TV show object
     const tvShowFields = {};
@@ -98,11 +98,11 @@ router.put('/:id', auth, (req, res) => {
     try {
         let tvShow = await TvShow.findById(req.params.id);
 
-        if (!tvShow) return res.status(404).json({msg: 'TV Show not found.'})
+        if (!tvShow) return res.status(404).json({ msg: 'TV Show not found.' });
 
         // Make sure the user owns the TV show
         if (tvShow.user.toString() !== req.user.id) {
-            return res.status(401).json({msg: 'Not authorized'})
+            return res.status(401).json({ msg: 'Not authorized' });
         }
 
         tvShow = await TvShow.findByIdAndUpdate(
@@ -110,14 +110,14 @@ router.put('/:id', auth, (req, res) => {
             {
                 $set: tvShowFields
             },
-            {new: true}
-        )
+            { new: true }
+        );
 
         res.json(tvShow);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({msg: 'Server Error'})
+        res.status(500).json({ msg: 'Server Error' });
     }
-})
+});
 
 module.exports = router;

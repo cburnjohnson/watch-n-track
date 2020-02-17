@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/tvshows', require('./routes/tvshows'));
-app.use('/api/anime', require('./routes/anime'));
+app.use('/api/animes', require('./routes/animes'));
 
 const PORT = process.env.PORT || 5000;
 
