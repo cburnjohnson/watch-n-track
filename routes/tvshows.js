@@ -29,7 +29,7 @@ router.post(
     [
         auth,
         [
-            check('name', 'TV show name is required.')
+            check('name', 'TV show name is required')
                 .not()
                 .isEmpty()
         ]
@@ -67,16 +67,16 @@ router.delete('/:id', auth, async (req, res) => {
     try {
         let tvShow = await TvShow.findById(req.params.id);
 
-        if (!tvShow) return res.status(404).json({ msg: 'TV show not found.' });
+        if (!tvShow) return res.status(404).json({ msg: 'TV show not found' });
 
         // Make sure the user owns the TV show
         if (tvShow.user.toString() !== req.user.id) {
-            return res.status(401).json({ msg: 'Not authorized.' });
+            return res.status(401).json({ msg: 'Not authorized' });
         }
 
         await TvShow.findByIdAndRemove(req.params.id);
 
-        res.json({ msg: 'TV Show delete.' });
+        res.json({ msg: 'TV Show deleted' });
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ msg: 'Server Error' });
@@ -98,7 +98,7 @@ router.put('/:id', auth, async (req, res) => {
     try {
         let tvShow = await TvShow.findById(req.params.id);
 
-        if (!tvShow) return res.status(404).json({ msg: 'TV Show not found.' });
+        if (!tvShow) return res.status(404).json({ msg: 'TV Show not found' });
 
         // Make sure the user owns the TV show
         if (tvShow.user.toString() !== req.user.id) {

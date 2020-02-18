@@ -30,7 +30,7 @@ router.post(
     [
         auth,
         [
-            check('name', 'Movie name is required.')
+            check('name', 'Movie name is required')
                 .not()
                 .isEmpty()
         ]
@@ -67,12 +67,12 @@ router.delete('/:id', auth, async (req, res) => {
         let movie = await Movie.findById(req.params.id);
 
         if (!movie) {
-            return res.status(404).json({ msg: 'Movie not found.' });
+            return res.status(404).json({ msg: 'Movie not found' });
         }
 
         // Check if user owns Movie
         if (movie.user.toString() !== req.user.id) {
-            return res.status(401).json({ msg: 'Not authorized.' });
+            return res.status(401).json({ msg: 'Not authorized' });
         }
 
         await Movie.findByIdAndRemove(req.params.id);
@@ -98,7 +98,7 @@ router.put('/:id', auth, async (req, res) => {
         let movie = await Movie.findById(req.params.id);
 
         if (!movie) {
-            return res.status(404).json({ msg: 'Movie not found.' });
+            return res.status(404).json({ msg: 'Movie not found' });
         }
 
         // Check if user owns movie

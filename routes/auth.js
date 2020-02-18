@@ -26,7 +26,7 @@ router.get('/', auth, async (req, res) => {
 router.post(
     '/',
     [
-        check('email', 'Valid email is required.').isEmail(),
+        check('email', 'Valid email is required').isEmail(),
         check('password', 'Valid password is required').exists()
     ],
     async (req, res) => {
@@ -41,7 +41,7 @@ router.post(
             let user = await User.findOne({ email });
 
             if (!user) {
-                return res.status(400).json({ msg: 'User is not found!' });
+                return res.status(400).json({ msg: 'User is not found' });
             }
 
             const isMatch = await bcrypt.compare(password, user.password);

@@ -28,7 +28,7 @@ router.post(
     [
         auth,
         [
-            check('name', 'Anime name is required.')
+            check('name', 'Anime name is required')
                 .not()
                 .isEmpty()
         ]
@@ -66,16 +66,16 @@ router.delete('/:id', auth, async (req, res) => {
     try {
         let anime = await Anime.findById(req.params.id);
 
-        if (!anime) res.status(404).json({ msg: 'Anime not found.' });
+        if (!anime) res.status(404).json({ msg: 'Anime not found' });
 
         // Make sure user owns anime
         if (anime.user.toString() !== req.user.id) {
-            return res.status(401).json({ msg: 'Not authorized.' });
+            return res.status(401).json({ msg: 'Not authorized' });
         }
 
         await Anime.findByIdAndRemove(req.params.id);
 
-        res.json({ msg: 'Anime deleted.' });
+        res.json({ msg: 'Anime deleted' });
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ msg: 'Server Error' });
@@ -97,7 +97,7 @@ router.put('/:id', auth, async (req, res) => {
     try {
         let anime = await Anime.findById(req.params.id);
 
-        if (!anime) res.status(404).json({ msg: 'Anime not found.' });
+        if (!anime) res.status(404).json({ msg: 'Anime not found' });
 
         // Check if user owns anime
         if (anime.user.toString() !== req.user.id) {
