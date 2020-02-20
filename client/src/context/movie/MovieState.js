@@ -3,6 +3,8 @@ import MovieContext from './movieContext';
 import movieReducer from './movieReducer';
 import axios from 'axios';
 
+import { ADD_MOVIE, GET_MOVIES, UPDATE_MOVIE, DELETE_MOVIE } from '../types';
+
 const MovieState = props => {
     const initialState = {
         movies: [
@@ -17,8 +19,8 @@ const MovieState = props => {
     const [state, dispatch] = useReducer(movieReducer, initialState);
 
     // Add Movie
-    const addMovie = () => {
-        console.log('add movie');
+    const addMovie = movie => {
+        dispatch({ type: ADD_MOVIE, payload: movie });
     };
 
     // Get Movies
