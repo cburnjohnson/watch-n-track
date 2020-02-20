@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import Movie from './Movie';
+
+import MovieContext from '../../context/movie/movieContext';
 
 const Movies = () => {
+    const movieContext = useContext(MovieContext);
+
+    const { movies } = movieContext;
+
     return (
         <div>
-            <div className=''>movies</div>
+            <ul>
+                {movies.map(movie => (
+                    <Movie movie={movie} />
+                ))}
+            </ul>
         </div>
     );
 };
