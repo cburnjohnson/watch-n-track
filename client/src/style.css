@@ -26,3 +26,8 @@ body {
     padding: 0 46%;
     cursor: pointer;
 }
+
+.Collapsible__contentInner {
+    background-color: #383838;
+    color: #fff;
+}
