@@ -8,11 +8,11 @@ import { ADD_MOVIE, GET_MOVIES, UPDATE_MOVIE, DELETE_MOVIE } from '../types';
 const MovieState = props => {
     const initialState = {
         movies: [
-            { name: 'Pickle Man' },
-            { name: 'Pickle Man 1' },
-            { name: 'Pickle Man 2' },
-            { name: 'Pickle Man 3' },
-            { name: 'Pickle Man 4' }
+            { _id: 1, name: 'Pickle Man' },
+            { _id: 2, name: 'Pickle Man 1' },
+            { _id: 3, name: 'Pickle Man 2' },
+            { _id: 4, name: 'Pickle Man 3' },
+            { _id: 5, name: 'Pickle Man 4' }
         ]
     };
 
@@ -34,8 +34,8 @@ const MovieState = props => {
     };
 
     // Delete Movie
-    const deleteMovie = () => {
-        console.log('deleted movie');
+    const deleteMovie = movieId => {
+        dispatch({ type: DELETE_MOVIE, payload: movieId });
     };
 
     return (

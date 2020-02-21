@@ -7,6 +7,13 @@ export default (state, action) => {
                 ...state,
                 movies: [action.payload, ...state.movies]
             };
+        case DELETE_MOVIE:
+            return {
+                ...state,
+                movies: state.movies.filter(
+                    movie => movie._id !== action.payload
+                )
+            };
         default:
             return state;
     }

@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import MovieContext from '../../context/movie/movieContext';
 
 const Movie = ({ movie }) => {
+    const movieContext = useContext(MovieContext);
+
+    const { deleteMovie } = movieContext;
+
+    const { _id, name } = movie;
+
+    const onDelete = () => {
+        deleteMovie(_id);
+    };
+
     return (
         <li>
-            {movie.name}
+            {name}
             <div>
-                <i className='edit-icon fas fa-edit'></i>
-                <i className='delete-icon fas fa-trash'></i>
+                <i className="edit-icon fas fa-edit"></i>
+                <i className="delete-icon fas fa-trash" onClick={onDelete}></i>
             </div>
         </li>
     );
