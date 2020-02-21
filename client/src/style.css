@@ -61,3 +61,18 @@ body i {
     border-radius: 3px;
     background-color: #4bca81;
 }
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.edit-icon {
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.delete-icon {
+    cursor: pointer;
+}

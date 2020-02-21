@@ -7,7 +7,6 @@ import Anime from '../anime/Anime';
 const Home = () => {
     return (
         <div>
-            <h1>Watch N Track</h1>
             <div className='watched-list'>
                 <Movies />
                 {/* <TvShows />
