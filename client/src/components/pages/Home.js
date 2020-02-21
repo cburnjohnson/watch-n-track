@@ -10,8 +10,8 @@ const Home = () => {
             <h1>Watch N Track</h1>
             <div className='watched-list'>
                 <Movies />
-                <TvShows />
-                <Anime />
+                {/* <TvShows />
+                <Anime /> */}
             </div>
         </div>
     );
