@@ -11,6 +11,10 @@ body {
     background-color: #1f1f1f;
 }
 
+body i {
+    font-family: 'FontAwesome';
+}
+
 /* List Styling */
 .watched-list {
     margin: 0 auto;
