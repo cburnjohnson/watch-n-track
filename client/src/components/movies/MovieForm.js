@@ -17,12 +17,29 @@ const MovieForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        if (movie.name === '') {
+            return;
+        }
         addMovie(movie);
+        clearField(e);
+    };
+
+    const clearField = e => {
+        document.getElementById('movieName').value = '';
+        setMovie({
+            name: ''
+        });
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <input type='text' name='name' onChange={onChange} />
+        <form onSubmit={onSubmit} id='movieForm' class='list-form'>
+            <input
+                type='text'
+                name='name'
+                id='movieName'
+                onChange={onChange}
+                placeholder='Enter movie name'
+            />
             <input type='submit' value='Add Movie' />
         </form>
     );
