@@ -19,18 +19,37 @@ const Movie = ({ movie }) => {
     };
 
     const updateText = e => {
-        const movie = e.target.parentElement.previousSibling;
-        movie.contentEditable = true;
-        movie.focus();
+        const movieEl = e.target.parentElement.previousSibling;
+        if (document.activeElement !== movieEl) {
+            movieEl.contentEditable = true;
+            movieEl.focus();
+        } else {
+            movieEl.contentEditable = false;
+        }
     };
 
     const onFocus = () => {
         document.execCommand('selectAll', false, null);
     };
 
+    const onKeyPress = e => {
+        if (e.target) {
+            const movieEl = e.target;
+            if (e.charCode === 13 && document.activeElement === movieEl) {
+                document.activeElement.contentEditable = false;
+            }
+        }
+    };
+
+    const onBlur = e => {
+        e.target.contentEditable = false;
+    };
+
     return (
         <li>
-            <span onFocus={onFocus}>{name}</span>
+            <span onFocus={onFocus} onKeyPress={onKeyPress} onBlur={onBlur}>
+                {name}
+            </span>
             <div>
                 <i className='edit-icon fas fa-edit' onClick={onUpdate}></i>
                 <i className='delete-icon fas fa-trash' onClick={onDelete}></i>
