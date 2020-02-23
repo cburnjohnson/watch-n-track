@@ -12,8 +12,10 @@ const Movies = () => {
 
     const { movies } = movieContext;
 
+    console.log(movies.length);
+
     return (
-        <Collapsible trigger='Movies'>
+        <Collapsible trigger={`Movies (${movies.length})`}>
             <MovieForm />
             <ul>
                 {movies.map(movie => (
