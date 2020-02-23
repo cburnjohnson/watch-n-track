@@ -20,12 +20,8 @@ const Movie = ({ movie }) => {
 
     const updateText = e => {
         const movieEl = e.target.parentElement.previousSibling;
-        if (document.activeElement !== movieEl) {
-            movieEl.contentEditable = true;
-            movieEl.focus();
-        } else {
-            movieEl.contentEditable = false;
-        }
+        movieEl.contentEditable = true;
+        movieEl.focus();
     };
 
     const onFocus = () => {
