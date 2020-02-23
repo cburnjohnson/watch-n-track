@@ -14,6 +14,13 @@ export default (state, action) => {
                     movie => movie._id !== action.payload
                 )
             };
+        case UPDATE_MOVIE:
+            return {
+                ...state,
+                movies: state.movies.map(movie =>
+                    movie._id === action.payload._id ? action.payload : movie
+                )
+            };
         default:
             return state;
     }

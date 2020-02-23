@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import MovieContext from '../../context/movie/movieContext';
 
@@ -9,13 +9,18 @@ const Movie = ({ movie }) => {
 
     const { _id, name } = movie;
 
+    const [movieState, setMovieState] = useState(movie);
+
     const onDelete = () => {
         deleteMovie(_id);
     };
 
     const onUpdate = e => {
         updateText(e);
-        updateMovie(_id);
+    };
+
+    const onInput = e => {
+        setMovieState({ ...movie, name: e.target.innerHTML });
     };
 
     const updateText = e => {
@@ -33,17 +38,24 @@ const Movie = ({ movie }) => {
             const movieEl = e.target;
             if (e.charCode === 13 && document.activeElement === movieEl) {
                 document.activeElement.contentEditable = false;
+                updateMovie(movieState);
             }
         }
     };
 
     const onBlur = e => {
         e.target.contentEditable = false;
+        updateMovie(movieState);
     };
 
     return (
         <li>
-            <span onFocus={onFocus} onKeyPress={onKeyPress} onBlur={onBlur}>
+            <span
+                onInput={onInput}
+                onFocus={onFocus}
+                onKeyPress={onKeyPress}
+                onBlur={onBlur}
+            >
                 {name}
             </span>
             <div>

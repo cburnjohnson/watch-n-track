@@ -29,8 +29,8 @@ const MovieState = props => {
     };
 
     // Update Movie
-    const updateMovie = () => {
-        console.log('update movie');
+    const updateMovie = movie => {
+        dispatch({ type: UPDATE_MOVIE, payload: movie });
     };
 
     // Delete Movie
