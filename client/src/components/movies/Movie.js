@@ -25,6 +25,7 @@ const Movie = ({ movie }) => {
 
     const updateText = e => {
         const movieEl = e.target.parentElement.previousSibling;
+        movieEl.classList.add('current-edit');
         movieEl.contentEditable = true;
         movieEl.focus();
     };

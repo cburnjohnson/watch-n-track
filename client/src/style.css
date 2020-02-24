@@ -32,6 +32,7 @@ body i {
     margin: 0;
     padding: 0 40%;
     cursor: pointer;
+    color: #fff;
 }
 
 .Collapsible__contentInner {
@@ -77,4 +78,9 @@ ul li {
 .delete-icon {
     cursor: pointer;
     color: #d9534f;
+}
+
+.current-edit {
+    padding: 0.25rem;
+    background-color: #4e4e4e;
 }
