@@ -9,8 +9,8 @@ const Home = () => {
         <div>
             <div className='watched-list'>
                 <Movies />
-                {/* <TvShows />
-                <Anime /> */}
+                <TvShows />
+                {/* <Anime /> */}
             </div>
         </div>
     );
