@@ -13,11 +13,16 @@ const TvShows = () => {
 
     return (
         <Collapsible trigger={`TV Shows (${tvShows.length})`}>
-            <ul>
+            <div className='tvshows-grid-container'>
+                <span>Name</span>
+                <span>Season</span>
+                <span>Episode</span>
+                <span></span>
+
                 {tvShows.map(tvShow => (
                     <TvShow tvShow={tvShow} key={uuidv4()} />
                 ))}
-            </ul>
+            </div>
         </Collapsible>
     );
 };

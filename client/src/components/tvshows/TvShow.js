@@ -18,13 +18,15 @@ const TvShow = ({ tvShow }) => {
     };
 
     return (
-        <li>
+        <>
             <span>{name}</span>
+            <span>{season}</span>
+            <span>{episode}</span>
             <div>
                 <i className='edit-icon fas fa-edit' onClick={onUpdate}></i>
                 <i className='delete-icon fas fa-trash' onClick={onDelete}></i>
             </div>
-        </li>
+        </>
     );
 };
 
