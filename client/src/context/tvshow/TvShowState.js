@@ -3,6 +3,13 @@ import React, { useReducer } from 'react';
 import tvShowReducer from './tvShowReducer';
 import TvShowContext from './tvShowContext';
 
+import {
+    ADD_TV_SHOW,
+    GET_TV_SHOWS,
+    UPDATE_TV_SHOW,
+    DELETE_TV_SHOW
+} from '../types';
+
 const TvShowState = props => {
     const initialState = {
         tvShows: [
@@ -45,8 +52,8 @@ const TvShowState = props => {
     };
 
     // Delete TV Show
-    const deleteTvShow = () => {
-        console.log('deleted');
+    const deleteTvShow = tvShowId => {
+        dispatch({ type: DELETE_TV_SHOW, payload: tvShowId });
     };
 
     return (
