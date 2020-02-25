@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import TvShowContext from '../../context/tvshow/tvShowContext';
 
@@ -8,6 +8,8 @@ const TvShow = ({ tvShow }) => {
     const { deleteTvShow, updateTvShow } = tvShowContext;
 
     const { _id, name, season, episode } = tvShow;
+
+    const [tvShowState, setTvShowState] = useState(tvShow);
 
     const onUpdate = e => {
         let previousEl =
@@ -24,6 +26,13 @@ const TvShow = ({ tvShow }) => {
         previousEl.previousSibling.previousSibling.focus();
     };
 
+    const onInput = e => {
+        setTvShowState({
+            ...tvShowState,
+            [e.target.dataset.info]: e.target.innerHTML
+        });
+    };
+
     const onFocus = () => {
         document.execCommand('selectAll', false, null);
     };
@@ -36,7 +45,7 @@ const TvShow = ({ tvShow }) => {
         e.target.removeAttribute('tabIndex');
         e.target.contentEditable = false;
         e.target.classList.remove('current-edit');
-        updateTvShow();
+        updateTvShow(tvShowState);
     };
 
     const onKeyPress = e => {
@@ -51,20 +60,38 @@ const TvShow = ({ tvShow }) => {
                 if (document.activeElement.nextSibling !== null) {
                     document.activeElement.nextSibling.focus();
                 }
-                updateTvShow();
+                updateTvShow(tvShowState);
             }
         }
     };
 
     return (
         <>
-            <span onKeyPress={onKeyPress} onBlur={onBlur} onFocus={onFocus}>
+            <span
+                onKeyPress={onKeyPress}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                onInput={onInput}
+                data-info='name'
+            >
                 {name}
             </span>
-            <span onKeyPress={onKeyPress} onBlur={onBlur} onFocus={onFocus}>
+            <span
+                onKeyPress={onKeyPress}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                onInput={onInput}
+                data-info='season'
+            >
                 {season}
             </span>
-            <span onKeyPress={onKeyPress} onBlur={onBlur} onFocus={onFocus}>
+            <span
+                onKeyPress={onKeyPress}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                onInput={onInput}
+                data-info='episode'
+            >
                 {episode}
             </span>
             <div>

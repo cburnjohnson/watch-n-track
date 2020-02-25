@@ -12,6 +12,13 @@ export default (state, action) => {
                 ...state,
                 tvShows: [action.payload, ...state.tvShows]
             };
+        case UPDATE_TV_SHOW:
+            return {
+                ...state,
+                tvShows: state.tvShows.map(tvShow =>
+                    tvShow._id === action.payload._id ? action.payload : tvShow
+                )
+            };
         case DELETE_TV_SHOW:
             return {
                 ...state,

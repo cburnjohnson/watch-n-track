@@ -47,8 +47,8 @@ const TvShowState = props => {
     };
 
     // Update TV Show
-    const updateTvShow = () => {
-        console.log('updated tv show');
+    const updateTvShow = tvShow => {
+        dispatch({ type: UPDATE_TV_SHOW, payload: tvShow });
     };
 
     // Delete TV Show
