@@ -45,7 +45,15 @@ const TvShow = ({ tvShow }) => {
         e.target.removeAttribute('tabIndex');
         e.target.contentEditable = false;
         e.target.classList.remove('current-edit');
-        updateTvShow(tvShowState);
+        let contentEditableEls = document.querySelectorAll(
+            'span[contentEditable=true]'
+        );
+
+        contentEditableEls = [...contentEditableEls];
+
+        if (contentEditableEls.length === 0) {
+            updateTvShow(tvShowState);
+        }
     };
 
     const onKeyPress = e => {
@@ -60,7 +68,16 @@ const TvShow = ({ tvShow }) => {
                 if (document.activeElement.nextSibling !== null) {
                     document.activeElement.nextSibling.focus();
                 }
-                updateTvShow(tvShowState);
+
+                let contentEditableEls = document.querySelectorAll(
+                    'span[contentEditable=true]'
+                );
+
+                contentEditableEls = [...contentEditableEls];
+
+                if (contentEditableEls.length === 0) {
+                    updateTvShow(tvShowState);
+                }
             }
         }
     };
