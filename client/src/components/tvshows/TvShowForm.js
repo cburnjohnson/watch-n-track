@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+
+import TvShowContext from '../../context/tvshow/tvShowContext';
 
 const TvShowForm = () => {
+    const tvShowContext = useContext(TvShowContext);
+
+    const { addTvShow } = tvShowContext;
+
     return (
-        <form className='list-form'>
+        <form onSubmit={onSubmit} className='list-form'>
             <input
                 type='text'
                 name='tvShowName'
