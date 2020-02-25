@@ -26,5 +26,7 @@ export default (state, action) => {
                     tvShow => tvShow._id !== action.payload
                 )
             };
+        default:
+            return state;
     }
 };
