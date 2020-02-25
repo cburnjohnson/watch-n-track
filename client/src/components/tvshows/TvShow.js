@@ -22,7 +22,10 @@ const TvShow = ({ tvShow }) => {
             }
         }
         previousEl.previousSibling.previousSibling.focus();
-        console.log(previousEl);
+    };
+
+    const onFocus = () => {
+        document.execCommand('selectAll', false, null);
     };
 
     const onDelete = () => {
@@ -31,9 +34,9 @@ const TvShow = ({ tvShow }) => {
 
     return (
         <>
-            <span>{name}</span>
-            <span>{season}</span>
-            <span>{episode}</span>
+            <span onFocus={onFocus}>{name}</span>
+            <span onFocus={onFocus}>{season}</span>
+            <span onFocus={onFocus}>{episode}</span>
             <div>
                 <i className='edit-icon fas fa-edit' onClick={onUpdate}></i>
                 <i className='delete-icon fas fa-trash' onClick={onDelete}></i>
