@@ -37,8 +37,8 @@ const TvShowState = props => {
     const [state, dispatch] = useReducer(tvShowReducer, initialState);
 
     // Add TV Show
-    const addTvShow = () => {
-        console.log('added');
+    const addTvShow = tvShow => {
+        dispatch({ type: ADD_TV_SHOW, payload: tvShow });
     };
 
     // Get users TV shows

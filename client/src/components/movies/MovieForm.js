@@ -24,7 +24,7 @@ const MovieForm = () => {
         clearField(e);
     };
 
-    const clearField = e => {
+    const clearField = () => {
         document.getElementById('movieName').value = '';
         setMovie({
             name: ''
