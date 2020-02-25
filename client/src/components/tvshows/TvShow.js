@@ -9,8 +9,20 @@ const TvShow = ({ tvShow }) => {
 
     const { _id, name, season, episode } = tvShow;
 
-    const onUpdate = () => {
-        console.log('fsdf');
+    const onUpdate = e => {
+        let previousEl =
+            e.target.parentElement.previousSibling.previousSibling
+                .previousSibling;
+        for (let i = 1; i < 4; i++) {
+            previousEl.contentEditable = true;
+            previousEl.classList.add('current-edit');
+            previousEl.tabIndex = i;
+            if (i < 3) {
+                previousEl = previousEl.nextSibling;
+            }
+        }
+        previousEl.previousSibling.previousSibling.focus();
+        console.log(previousEl);
     };
 
     const onDelete = () => {
