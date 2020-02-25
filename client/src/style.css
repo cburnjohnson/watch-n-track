@@ -41,20 +41,34 @@ body i {
     font-size: 2rem;
 }
 
-#movieForm {
+.list-form {
     display: flex;
     border: 1px solid #0e0e0e;
 }
 
 .list-form input[type='text'] {
-    width: 80%;
+    flex: 5;
     display: block;
     padding: 0.25rem;
     font-size: 1.5rem;
 }
 
 .list-form input[type='submit'] {
-    width: 20%;
+    flex: 1;
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 3px;
+    background-color: #5cb85c;
+}
+
+.list-form input[type='number'] {
+    flex: 1;
+}
+
+.list-form button {
+    flex: 1;
     display: block;
     cursor: pointer;
     font-size: 1.5rem;
