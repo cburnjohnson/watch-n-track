@@ -40,7 +40,9 @@ const MovieForm = () => {
                 onChange={onChange}
                 placeholder='Enter movie name'
             />
-            <input type='submit' value='Add Movie' />
+            <button type='submit'>
+                <i className='fas fa-plus'></i>
+            </button>
         </form>
     );
 };

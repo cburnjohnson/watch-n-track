@@ -47,15 +47,13 @@ body i {
 }
 
 .list-form input[type='text'] {
-    flex: 5;
-    display: block;
+    flex: 8;
     padding: 0.25rem;
     font-size: 1.5rem;
 }
 
 .list-form input[type='submit'] {
     flex: 1;
-    display: block;
     cursor: pointer;
     font-size: 1.5rem;
     border: none;
@@ -65,10 +63,12 @@ body i {
 
 .list-form input[type='number'] {
     flex: 1;
+    padding: 0.25rem;
+    font-size: 1.5rem;
 }
 
 .list-form button {
-    flex: 1;
+    flex: 2;
     display: block;
     cursor: pointer;
     font-size: 1.5rem;

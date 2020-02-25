@@ -9,10 +9,20 @@ const TvShowForm = () => {
                 id='tvShowName'
                 placeholder='Enter TV show name...'
             />
-            <input type='number' name='tvShowSeason' id='tvShowSeason' />
-            <input type='number' name='tvShowEpisode' id='tvShowEpisode' />
+            <input
+                type='number'
+                name='tvShowSeason'
+                id='tvShowSeason'
+                placeholder='Season...'
+            />
+            <input
+                type='number'
+                name='tvShowEpisode'
+                id='tvShowEpisode'
+                placeholder='Episode...'
+            />
             <button type='submit'>
-                <i class='fas fa-plus'></i>
+                <i className='fas fa-plus'></i>
             </button>
         </form>
     );
