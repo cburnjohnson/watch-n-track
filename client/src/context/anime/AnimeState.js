@@ -2,6 +2,8 @@ import React, { useReducer } from 'react';
 import AnimeContext from './animeContext';
 import animeReducer from './animeReducer';
 
+import { ADD_ANIME, GET_ANIME, UPDATE_ANIME, DELETE_ANIME } from '../types';
+
 const AnimeState = props => {
     const initialState = {
         anime: [
