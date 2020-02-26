@@ -15,7 +15,7 @@ const TvShows = () => {
     return (
         <Collapsible trigger={`TV Shows (${tvShows.length})`}>
             <TvShowForm />
-            <div className='tvshows-grid-container'>
+            <div className='shows-grid-container'>
                 <span>Name</span>
                 <span>Season</span>
                 <span>Episode</span>
