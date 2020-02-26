@@ -14,8 +14,36 @@ const AnimeState = props => {
 
     const [state, dispatch] = useReducer(animeReducer, initialState);
 
+    // Add a new Anime
+    const addAnime = () => {
+        console.log('added');
+    };
+
+    // Get all Anime
+    const getAnime = () => {
+        console.log('adde');
+    };
+
+    // Update an Anime
+    const updateAnime = () => {
+        console.log('added');
+    };
+
+    // Delete an Anime
+    const deleteAnime = () => {
+        console.log('added');
+    };
+
     return (
-        <AnimeContext.Provider value={{ anime: state.anime }}>
+        <AnimeContext.Provider
+            value={{
+                anime: state.anime,
+                addAnime,
+                getAnime,
+                updateAnime,
+                deleteAnime
+            }}
+        >
             {props.children}
         </AnimeContext.Provider>
     );
