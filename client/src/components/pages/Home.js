@@ -10,7 +10,7 @@ const Home = () => {
             <div className='watched-list'>
                 <Movies />
                 <TvShows />
-                {/* <Anime /> */}
+                <Anime />
             </div>
         </div>
     );
