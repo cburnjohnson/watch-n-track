@@ -5,14 +5,16 @@ import AnimeContext from '../../context/anime/animeContext';
 const AnimeItem = ({ anime }) => {
     const animeContext = useContext(AnimeContext);
 
-    const { name, season, episode } = anime;
+    const { deleteAnime } = animeContext;
+
+    const { _id, name, season, episode } = anime;
 
     const onUpdate = () => {
         console.log('fsdf');
     };
 
     const onDelete = () => {
-        console.log('fsdf');
+        deleteAnime(_id);
     };
 
     return (

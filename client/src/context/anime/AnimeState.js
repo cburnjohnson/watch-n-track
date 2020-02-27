@@ -32,8 +32,8 @@ const AnimeState = props => {
     };
 
     // Delete an Anime
-    const deleteAnime = () => {
-        console.log('added');
+    const deleteAnime = animeId => {
+        dispatch({ type: DELETE_ANIME, payload: animeId });
     };
 
     return (
