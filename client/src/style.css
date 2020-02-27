@@ -17,21 +17,26 @@ body i {
 
 /* List Styling */
 .watched-list {
-    margin: 0 auto;
+    margin: 5rem auto;
     width: 80%;
     border: 1px solid #0e0e0e;
+    -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .Collapsible {
     font-size: 2.5rem;
     text-align: center;
     background-color: #282828;
+    border: 1px solid #0e0e0e;
 }
 
 .Collapsible__trigger {
     display: block;
     cursor: pointer;
     color: #fff;
+    padding: 1rem;
 }
 
 .Collapsible__trigger:hover {
@@ -120,7 +125,9 @@ nav {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #0e0e0e;
-    margin-bottom: 5rem;
+    -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 nav h1 {
