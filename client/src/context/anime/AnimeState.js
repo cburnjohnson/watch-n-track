@@ -17,8 +17,8 @@ const AnimeState = props => {
     const [state, dispatch] = useReducer(animeReducer, initialState);
 
     // Add a new Anime
-    const addAnime = () => {
-        console.log('added');
+    const addAnime = anime => {
+        dispatch({ type: ADD_ANIME, payload: anime });
     };
 
     // Get all Anime

@@ -3,6 +3,7 @@ import uuidv4 from 'uuid/v4';
 
 import Collapsible from 'react-collapsible';
 import AnimeItem from './AnimeItem';
+import AnimeForm from './AnimeForm';
 
 import AnimeContext from '../../context/anime/animeContext';
 
@@ -13,6 +14,7 @@ const Anime = () => {
 
     return (
         <Collapsible trigger={`Anime (${anime.length})`}>
+            <AnimeForm />
             <div className='shows-grid-container'>
                 <span>Name</span>
                 <span>Season</span>
