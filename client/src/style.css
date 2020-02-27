@@ -29,7 +29,7 @@ body i {
 }
 
 .Collapsible__trigger {
-    padding: 0 40%;
+    display: block;
     cursor: pointer;
     color: #fff;
 }

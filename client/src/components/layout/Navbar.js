@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <nav>
             <h1>
-                <i class='far fa-file-video'></i>
+                <i className='far fa-file-video'></i>
                 Watch <span>N</span> Track
             </h1>
 
