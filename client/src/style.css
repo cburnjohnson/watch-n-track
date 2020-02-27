@@ -55,7 +55,6 @@ body i {
 
 .list-form {
     display: flex;
-    border: 1px solid #0e0e0e;
 }
 
 .list-form input[type='text'] {
