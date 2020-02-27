@@ -14,13 +14,9 @@ const Navbar = () => {
                 <li>
                     <Link to='/register'>Register</Link>
                 </li>
-            </ul>
-            <ul>
                 <li>
                     <Link to='/login'>Login</Link>
                 </li>
-            </ul>
-            <ul>
                 <li>
                     <a onClick={onLogout}>Logout</a>
                 </li>
