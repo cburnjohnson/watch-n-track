@@ -27,8 +27,8 @@ const AnimeState = props => {
     };
 
     // Update an Anime
-    const updateAnime = () => {
-        console.log('added');
+    const updateAnime = anime => {
+        dispatch({ type: UPDATE_ANIME, payload: anime });
     };
 
     // Delete an Anime
