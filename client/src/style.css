@@ -29,10 +29,17 @@ body i {
 }
 
 .Collapsible__trigger {
-    margin: 0;
     padding: 0 40%;
     cursor: pointer;
     color: #fff;
+}
+
+.Collapsible__trigger:hover {
+    color: #00aaff;
+}
+
+.Collapsible__trigger.is-open {
+    color: #00aaff;
 }
 
 .Collapsible__contentInner {
