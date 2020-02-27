@@ -9,7 +9,11 @@ const Navbar = () => {
 
     return (
         <nav>
-            <img src={logo} alt='Logo' />
+            <h1>
+                <i class='far fa-file-video'></i>
+                Watch <span>N</span> Track
+            </h1>
+
             <ul>
                 <li>
                     <Link to='/register'>Register</Link>
