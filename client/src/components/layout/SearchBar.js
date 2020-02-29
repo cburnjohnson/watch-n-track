@@ -8,6 +8,11 @@ const SearchBar = () => {
     const movieContext = useContext(MovieContext);
     const tvShowContext = useContext(TvShowContext);
     const animeContext = useContext(AnimeContext);
+    const text = useRef('');
+
+    const { filterMovies, clearMovieFilter, filteredMovies } = movieContext;
+    const { filterTvShows, clearTvShowFilter, filteredTvShows } = tvShowContext;
+    const { filterAnime, clearAnimeFilter, filteredAnime } = animeContext;
 
     const onChange = e => {
         console.log('change');
@@ -15,7 +20,12 @@ const SearchBar = () => {
 
     return (
         <form>
-            <input type="text" onChange={onChange} />
+            <input
+                ref={text}
+                type="text"
+                onChange={onChange}
+                placeholder="Search..."
+            />
         </form>
     );
 };

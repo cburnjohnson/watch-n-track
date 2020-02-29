@@ -13,7 +13,8 @@ const MovieState = props => {
             { _id: 3, name: 'Pickle Man 2' },
             { _id: 4, name: 'Pickle Man 3' },
             { _id: 5, name: 'Pickle Man 4' }
-        ]
+        ],
+        filtered: []
     };
 
     const [state, dispatch] = useReducer(movieReducer, initialState);
@@ -38,14 +39,27 @@ const MovieState = props => {
         dispatch({ type: DELETE_MOVIE, payload: movieId });
     };
 
+    // Filter Movies
+    const filterMovies = movie => {
+        dispatch({ type: FILTER, payload: movie });
+    };
+
+    // Clear Movie Filter
+    const clearMovieFilter = () => {
+        dispatch({ type: CLEAR_FILTER });
+    };
+
     return (
         <MovieContext.Provider
             value={{
                 movies: state.movies,
+                filtered: state.filtered,
                 addMovie,
                 getMovies,
                 updateMovie,
-                deleteMovie
+                deleteMovie,
+                filterMovies,
+                clearMovieFilter
             }}
         >
             {props.children}

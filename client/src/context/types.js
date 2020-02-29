@@ -10,3 +10,5 @@ export const ADD_ANIME = 'ADD_ANIME';
 export const GET_ANIME = 'GET_ANIME';
 export const UPDATE_ANIME = 'UPDATE_ANIME';
 export const DELETE_ANIME = 'DELETE_ANIME';
+export const FILTER = 'FILTER';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
