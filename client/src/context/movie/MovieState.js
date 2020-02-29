@@ -3,7 +3,14 @@ import MovieContext from './movieContext';
 import movieReducer from './movieReducer';
 import axios from 'axios';
 
-import { ADD_MOVIE, GET_MOVIES, UPDATE_MOVIE, DELETE_MOVIE } from '../types';
+import {
+    ADD_MOVIE,
+    GET_MOVIES,
+    UPDATE_MOVIE,
+    DELETE_MOVIE,
+    FILTER,
+    CLEAR_FILTER
+} from '../types';
 
 const MovieState = props => {
     const initialState = {

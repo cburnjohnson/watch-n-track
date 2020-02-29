@@ -44,13 +44,13 @@ const AnimeState = props => {
         dispatch({ type: DELETE_ANIME, payload: animeId });
     };
 
-    // Filter Movies
-    const filterMovies = movie => {
-        dispatch({ type: FILTER, payload: movie });
+    // Filter Anime
+    const filterAnime = anime => {
+        dispatch({ type: FILTER, payload: anime });
     };
 
-    // Clear Movie Filter
-    const clearMovieFilter = () => {
+    // Clear Anime Filter
+    const clearAnimeFilter = () => {
         dispatch({ type: CLEAR_FILTER });
     };
 
@@ -58,10 +58,13 @@ const AnimeState = props => {
         <AnimeContext.Provider
             value={{
                 anime: state.anime,
+                filtered: state.filtered,
                 addAnime,
                 getAnime,
                 updateAnime,
-                deleteAnime
+                deleteAnime,
+                filterAnime,
+                clearAnimeFilter
             }}
         >
             {props.children}
