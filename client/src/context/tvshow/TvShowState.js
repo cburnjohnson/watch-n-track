@@ -7,7 +7,9 @@ import {
     ADD_TV_SHOW,
     GET_TV_SHOWS,
     UPDATE_TV_SHOW,
-    DELETE_TV_SHOW
+    DELETE_TV_SHOW,
+    FILTER,
+    CLEAR_FILTER
 } from '../types';
 
 const TvShowState = props => {
@@ -31,7 +33,8 @@ const TvShowState = props => {
                 season: '12',
                 episode: '19'
             }
-        ]
+        ],
+        filtered: []
     };
 
     const [state, dispatch] = useReducer(tvShowReducer, initialState);
@@ -56,14 +59,27 @@ const TvShowState = props => {
         dispatch({ type: DELETE_TV_SHOW, payload: tvShowId });
     };
 
+    // Filter TV Shows
+    const filterTvShows = tvShow => {
+        dispatch({ type: FILTER, payload: tvShow });
+    };
+
+    // Clear TV Show Filter
+    const clearTvShowFilter = () => {
+        dispatch({ type: CLEAR_FILTER });
+    };
+
     return (
         <TvShowContext.Provider
             value={{
                 tvShows: state.tvShows,
+                filtered: state.filtered,
                 addTvShow,
                 getTvShows,
                 updateTvShow,
-                deleteTvShow
+                deleteTvShow,
+                filterTvShows,
+                clearTvShowFilter
             }}
         >
             {props.children}
