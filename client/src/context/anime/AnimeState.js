@@ -19,7 +19,7 @@ const AnimeState = props => {
             { _id: 3, name: 'ANIMEE', season: '13', episode: '13' },
             { _id: 4, name: 'ANIMEE', season: '14', episode: '13' }
         ],
-        filtered: []
+        filtered: null
     };
 
     const [state, dispatch] = useReducer(animeReducer, initialState);

@@ -21,7 +21,7 @@ const MovieState = props => {
             { _id: 4, name: 'Pickle Man 3' },
             { _id: 5, name: 'Pickle Man 4' }
         ],
-        filtered: []
+        filtered: null
     };
 
     const [state, dispatch] = useReducer(movieReducer, initialState);
