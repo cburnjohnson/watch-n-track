@@ -14,8 +14,26 @@ const SearchBar = () => {
     const { filterTvShows, clearTvShowFilter, filteredTvShows } = tvShowContext;
     const { filterAnime, clearAnimeFilter, filteredAnime } = animeContext;
 
+    useEffect(() => {
+        if (
+            filteredMovies === null &&
+            filteredTvShows === null &&
+            filteredAnime === null
+        ) {
+            text.current.value = '';
+        }
+    });
+
     const onChange = e => {
-        console.log('change');
+        if (text.current.value !== '') {
+            filterMovies(e.target.value);
+            filterTvShows(e.target.value);
+            filterAnime(e.target.value);
+        } else {
+            clearMovieFilter();
+            clearTvShowFilter();
+            clearAnimeFilter();
+        }
     };
 
     return (
