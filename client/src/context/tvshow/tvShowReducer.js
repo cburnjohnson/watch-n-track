@@ -36,6 +36,11 @@ export default (state, action) => {
                     return tvShow.name.match(regex);
                 })
             };
+        case CLEAR_FILTER:
+            return {
+                ...state,
+                filtered: null
+            };
         default:
             return state;
     }
