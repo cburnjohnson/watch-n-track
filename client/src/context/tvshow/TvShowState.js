@@ -34,7 +34,7 @@ const TvShowState = props => {
                 episode: '19'
             }
         ],
-        filtered: []
+        filtered: null
     };
 
     const [state, dispatch] = useReducer(tvShowReducer, initialState);
@@ -60,8 +60,8 @@ const TvShowState = props => {
     };
 
     // Filter TV Shows
-    const filterTvShows = tvShow => {
-        dispatch({ type: FILTER, payload: tvShow });
+    const filterTvShows = text => {
+        dispatch({ type: FILTER, payload: text });
     };
 
     // Clear TV Show Filter
