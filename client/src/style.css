@@ -17,7 +17,7 @@ body i {
 
 /* List Styling */
 .watched-list {
-    margin: 5rem auto;
+    margin: 0 auto;
     width: 80%;
     border: 1px solid #0e0e0e;
     -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
@@ -166,4 +166,15 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #00aaff;
+}
+
+/* Search Bar  */
+.search-bar {
+    margin: 3rem auto 3rem auto;
+    display: block;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.25rem;
 }

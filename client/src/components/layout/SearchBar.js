@@ -21,6 +21,7 @@ const SearchBar = () => {
     return (
         <form>
             <input
+                className="search-bar"
                 ref={text}
                 type="text"
                 onChange={onChange}
