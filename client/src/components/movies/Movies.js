@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import Collapsible from 'react-collapsible';
@@ -7,13 +8,13 @@ import MovieForm from './MovieForm';
 
 import MovieContext from '../../context/movie/movieContext';
 
-const Movies = () => {
+const Movies = ({ length }) => {
     const movieContext = useContext(MovieContext);
 
     const { movies, filtered } = movieContext;
 
     return (
-        <Collapsible trigger={`Movies (${movies.length})`}>
+        <Collapsible trigger={`Movies (${length})`}>
             <MovieForm />
             <ul>
                 {filtered !== null
@@ -26,6 +27,10 @@ const Movies = () => {
             </ul>
         </Collapsible>
     );
+};
+
+Movies.propTypes = {
+    length: PropTypes.string.isRequired
 };
 
 export default Movies;
