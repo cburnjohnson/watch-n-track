@@ -36,6 +36,11 @@ export default (state, action) => {
                     return movie.name.match(regex);
                 })
             };
+        case CLEAR_FILTER:
+            return {
+                ...state,
+                filtered: null
+            };
         default:
             return state;
     }
