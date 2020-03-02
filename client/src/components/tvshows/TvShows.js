@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import Collapsible from 'react-collapsible';
@@ -7,13 +8,13 @@ import TvShowForm from './TvShowForm';
 
 import TvShowContext from '../../context/tvshow/tvShowContext';
 
-const TvShows = () => {
+const TvShows = ({ quantity }) => {
     const tvShowContext = useContext(TvShowContext);
 
     const { tvShows, filtered } = tvShowContext;
 
     return (
-        <Collapsible trigger={`TV Shows (${tvShows.length})`}>
+        <Collapsible trigger={`TV Shows (${quantity})`}>
             <TvShowForm />
             <div className="shows-grid-container">
                 <span>Name</span>
@@ -31,6 +32,10 @@ const TvShows = () => {
             </div>
         </Collapsible>
     );
+};
+
+TvShows.propTypes = {
+    quantity: PropTypes.number.isRequired
 };
 
 export default TvShows;

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import Collapsible from 'react-collapsible';
@@ -7,13 +8,13 @@ import AnimeForm from './AnimeForm';
 
 import AnimeContext from '../../context/anime/animeContext';
 
-const Anime = () => {
+const Anime = ({ quantity }) => {
     const animeContext = useContext(AnimeContext);
 
     const { anime, filtered } = animeContext;
 
     return (
-        <Collapsible trigger={`Anime (${anime.length})`}>
+        <Collapsible trigger={`Anime (${quantity})`}>
             <AnimeForm />
             <div className="shows-grid-container">
                 <span>Name</span>
@@ -31,6 +32,10 @@ const Anime = () => {
             </div>
         </Collapsible>
     );
+};
+
+Anime.propTypes = {
+    quantity: PropTypes.number.isRequired
 };
 
 export default Anime;

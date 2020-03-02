@@ -8,13 +8,13 @@ import MovieForm from './MovieForm';
 
 import MovieContext from '../../context/movie/movieContext';
 
-const Movies = ({ length }) => {
+const Movies = ({ quantity }) => {
     const movieContext = useContext(MovieContext);
 
     const { movies, filtered } = movieContext;
 
     return (
-        <Collapsible trigger={`Movies (${length})`}>
+        <Collapsible trigger={`Movies (${quantity})`}>
             <MovieForm />
             <ul>
                 {filtered !== null
@@ -30,7 +30,7 @@ const Movies = ({ length }) => {
 };
 
 Movies.propTypes = {
-    length: PropTypes.string.isRequired
+    quantity: PropTypes.number.isRequired
 };
 
 export default Movies;
