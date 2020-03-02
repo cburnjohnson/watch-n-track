@@ -45,8 +45,8 @@ const AnimeState = props => {
     };
 
     // Filter Anime
-    const filterAnime = anime => {
-        dispatch({ type: FILTER, payload: anime });
+    const filterAnime = text => {
+        dispatch({ type: FILTER, payload: text });
     };
 
     // Clear Anime Filter

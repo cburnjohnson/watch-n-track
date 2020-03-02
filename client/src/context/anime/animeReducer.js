@@ -1,4 +1,11 @@
-import { ADD_ANIME, GET_ANIME, UPDATE_ANIME, DELETE_ANIME } from '../types';
+import {
+    ADD_ANIME,
+    GET_ANIME,
+    UPDATE_ANIME,
+    DELETE_ANIME,
+    FILTER,
+    CLEAR_FILTER
+} from '../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -22,6 +29,20 @@ export default (state, action) => {
                 anime: state.anime.filter(
                     animeItem => animeItem._id !== action.payload
                 )
+            };
+        case FILTER:
+            return {
+                ...state,
+                filtered: state.anime.filter(animeItem => {
+                    const regex = new RegExp(`${action.payload}`, 'gi');
+                    return animeItem.name.match(regex);
+                })
+            };
+
+        case CLEAR_FILTER:
+            return {
+                ...state,
+                filtered: null
             };
 
         default:
