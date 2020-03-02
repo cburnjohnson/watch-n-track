@@ -1,4 +1,11 @@
-import { ADD_MOVIE, GET_MOVIES, UPDATE_MOVIE, DELETE_MOVIE } from '../types';
+import {
+    ADD_MOVIE,
+    GET_MOVIES,
+    UPDATE_MOVIE,
+    DELETE_MOVIE,
+    FILTER,
+    CLEAR_FILTER
+} from '../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -20,6 +27,14 @@ export default (state, action) => {
                 movies: state.movies.map(movie =>
                     movie._id === action.payload._id ? action.payload : movie
                 )
+            };
+        case FILTER:
+            return {
+                ...state,
+                filtered: state.movies.filter(movie => {
+                    const regex = new RegExp(`${action.payload}`, 'gi');
+                    return movie.name.match(regex);
+                })
             };
         default:
             return state;

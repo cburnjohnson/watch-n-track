@@ -47,8 +47,8 @@ const MovieState = props => {
     };
 
     // Filter Movies
-    const filterMovies = movie => {
-        dispatch({ type: FILTER, payload: movie });
+    const filterMovies = text => {
+        dispatch({ type: FILTER, payload: text });
     };
 
     // Clear Movie Filter
