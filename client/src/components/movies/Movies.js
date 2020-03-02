@@ -10,15 +10,19 @@ import MovieContext from '../../context/movie/movieContext';
 const Movies = () => {
     const movieContext = useContext(MovieContext);
 
-    const { movies } = movieContext;
+    const { movies, filtered } = movieContext;
 
     return (
         <Collapsible trigger={`Movies (${movies.length})`}>
             <MovieForm />
             <ul>
-                {movies.map(movie => (
-                    <Movie movie={movie} key={uuidv4()} />
-                ))}
+                {filtered !== null
+                    ? filtered.map(movie => (
+                          <Movie movie={movie} key={uuidv4()} />
+                      ))
+                    : movies.map(movie => (
+                          <Movie movie={movie} key={uuidv4()} />
+                      ))}
             </ul>
         </Collapsible>
     );
