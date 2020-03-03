@@ -48,30 +48,30 @@ const TvShowForm = () => {
     };
 
     return (
-        <form onSubmit={onSubmit} className='list-form'>
+        <form onSubmit={onSubmit} className="list-form">
             <input
-                type='text'
-                name='tvShowName'
-                id='tvShowName'
-                placeholder='Enter TV show name...'
+                type="text"
+                name="tvShowName"
+                id="tvShowName"
+                placeholder="TV show name..."
                 onChange={onChange}
             />
             <input
-                type='number'
-                name='tvShowSeason'
-                id='tvShowSeason'
-                placeholder='Season...'
+                type="number"
+                name="tvShowSeason"
+                id="tvShowSeason"
+                placeholder="Season..."
                 onChange={onChange}
             />
             <input
-                type='number'
-                name='tvShowEpisode'
-                id='tvShowEpisode'
-                placeholder='Episode...'
+                type="number"
+                name="tvShowEpisode"
+                id="tvShowEpisode"
+                placeholder="Episode..."
                 onChange={onChange}
             />
-            <button type='submit'>
-                <i className='fas fa-plus'></i>
+            <button type="submit">
+                <i className="fas fa-plus"></i>
             </button>
         </form>
     );

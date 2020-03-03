@@ -40,30 +40,30 @@ const AnimeForm = () => {
     };
 
     return (
-        <form onSubmit={onSubmit} className='list-form'>
+        <form onSubmit={onSubmit} className="list-form">
             <input
-                type='text'
-                name='name'
-                id='animeName'
-                placeholder='Enter anime name...'
+                type="text"
+                name="name"
+                id="animeName"
+                placeholder="Anime name..."
                 onChange={onChange}
             />
             <input
-                type='number'
-                name='season'
-                id='animeSeason'
-                placeholder='Season...'
+                type="number"
+                name="season"
+                id="animeSeason"
+                placeholder="Season..."
                 onChange={onChange}
             />
             <input
-                type='number'
-                name='episode'
-                id='animeEpisode'
-                placeholder='Episode...'
+                type="number"
+                name="episode"
+                id="animeEpisode"
+                placeholder="Episode..."
                 onChange={onChange}
             />
-            <button type='submit'>
-                <i className='fas fa-plus'></i>
+            <button type="submit">
+                <i className="fas fa-plus"></i>
             </button>
         </form>
     );

@@ -32,16 +32,16 @@ const MovieForm = () => {
     };
 
     return (
-        <form onSubmit={onSubmit} id='movieForm' className='list-form'>
+        <form onSubmit={onSubmit} id="movieForm" className="list-form">
             <input
-                type='text'
-                name='name'
-                id='movieName'
+                type="text"
+                name="name"
+                id="movieName"
                 onChange={onChange}
-                placeholder='Enter movie name'
+                placeholder="Movie name..."
             />
-            <button type='submit'>
-                <i className='fas fa-plus'></i>
+            <button type="submit">
+                <i className="fas fa-plus"></i>
             </button>
         </form>
     );
