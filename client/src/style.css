@@ -32,7 +32,7 @@ input[type='number']:focus {
 
 /* List Styling */
 .watched-list {
-    margin: 0 auto;
+    margin: 0 auto 5rem auto;
     width: 80%;
     border: 1px solid #0e0e0e;
     -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
@@ -72,19 +72,14 @@ input[type='number']:focus {
     display: flex;
 }
 
+.list-form input[type='number'] {
+    text-align: center;
+}
+
 .list-form input[type='text'] {
     flex: 8;
     padding: 0.25rem;
     font-size: 1.5rem;
-}
-
-.list-form input[type='submit'] {
-    flex: 1;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 3px;
-    background-color: #5cb85c;
 }
 
 .list-form input[type='number'] {
@@ -101,6 +96,11 @@ input[type='number']:focus {
     border: none;
     border-radius: 3px;
     background-color: #5cb85c;
+}
+
+.list-form button:hover {
+    background-color: #50a050;
+    color: #00aaff;
 }
 
 ul li {
