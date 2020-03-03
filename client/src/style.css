@@ -7,12 +7,28 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* Layout */
+
 body {
     background-color: #1f1f1f;
 }
 
 body i {
     font-family: 'FontAwesome';
+}
+
+input[type='text'] {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    outline: none;
+    border: 2px solid #dddddd;
+}
+
+input[type='text']:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 2px solid #00aaff;
 }
 
 /* List Styling */
@@ -162,6 +178,7 @@ nav ul li a {
     text-decoration: none;
     color: #fff;
     cursor: pointer;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -172,7 +189,7 @@ nav ul li a:hover {
 .search-bar {
     margin: 3rem auto 3rem auto;
     display: block;
-    width: 80%;
+    width: 70%;
     border-radius: 10px;
     border: none;
     font-size: 1.5rem;
