@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import AuthContext from './authContext';
 import authReducer from './authReducer';
 
 const AuthState = props => {
