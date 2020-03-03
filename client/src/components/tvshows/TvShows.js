@@ -17,9 +17,9 @@ const TvShows = ({ quantity }) => {
         <Collapsible trigger={`TV Shows (${quantity})`}>
             <TvShowForm />
             <div className="shows-grid-container">
-                <span>Name</span>
-                <span>Season</span>
-                <span>Episode</span>
+                <h2 className="watched-list-title">Name</h2>
+                <h2 className="watched-list-title">Season</h2>
+                <h2 className="watched-list-title">Episode</h2>
                 <span></span>
 
                 {filtered !== null
