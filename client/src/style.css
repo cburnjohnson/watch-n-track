@@ -115,9 +115,17 @@ ul li {
     color: #f0ad4e;
 }
 
+.edit-icon:hover {
+    color: #cc9343;
+}
+
 .delete-icon {
     cursor: pointer;
     color: #d9534f;
+}
+
+.delete-icon:hover {
+    color: #af4440;
 }
 
 .current-edit {
