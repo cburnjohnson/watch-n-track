@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import axios from 'axios';
 
 const AuthState = props => {
     const initialState = {
@@ -17,8 +18,17 @@ const AuthState = props => {
     };
 
     // Register user
-    const register = async () => {
-        console.log('register');
+    const register = async formData => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+        } catch (err) {
+            console.error(err.message);
+        }
     };
 
     // Login User
