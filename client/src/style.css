@@ -17,13 +17,15 @@ body i {
     font-family: 'FontAwesome';
 }
 
-input[type='text'] {
+input[type='text'],
+input[type='number'] {
     transition: all 0.3s ease-in-out;
     outline: none;
     border: 2px solid #dddddd;
 }
 
-input[type='text']:focus {
+input[type='text']:focus,
+input[type='number']:focus {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     border: 2px solid #00aaff;
 }
