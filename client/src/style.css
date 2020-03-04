@@ -258,7 +258,6 @@ nav ul li a:hover {
     margin: 0.5rem 0;
     width: 50%;
     border-radius: 10px;
-    border: none;
     font-size: 1.5rem;
     padding: 0.25rem;
 }
@@ -276,7 +275,6 @@ nav ul li a:hover {
 }
 
 .form-group input[type='submit']:hover {
-    box-shadow: 0 5px 15px #00aaff40;
-    border: 2px solid #00aaff40;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     cursor: pointer;
 }
