@@ -2,6 +2,8 @@ import React, { useReducer } from 'react';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 import axios from 'axios';
+import { REGISTER_FAIL, REGISTER_SUCCESS } from '../types';
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const AuthState = props => {
     const initialState = {
@@ -26,8 +28,18 @@ const AuthState = props => {
         };
 
         try {
+            const res = await axios.post('/api/users', formData, config);
+
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data
+            });
         } catch (err) {
-            console.error(err.message);
+            console.log(err);
+            // dispatch({
+            //     type: REGISTER_FAIL,
+            //     payload: err.response.data.msg
+            // });
         }
     };
 
