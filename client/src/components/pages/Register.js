@@ -29,7 +29,7 @@ const Register = () => {
     return (
         <div className='form-container'>
             <h1>
-                Register <span>Account</span>
+                Register <span className='highlight'>Account</span>
             </h1>
             <form onSubmit={onSubmit} className='flex-form'>
                 <div className='form-group'>

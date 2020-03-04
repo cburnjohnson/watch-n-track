@@ -30,6 +30,10 @@ input[type='number']:focus {
     border: 2px solid #00aaff;
 }
 
+.highlight {
+    color: #00aaff;
+}
+
 /* List Styling */
 .watched-list {
     margin: 0 auto 5rem auto;
@@ -201,6 +205,44 @@ nav ul li a:hover {
     margin: 3rem auto 3rem auto;
     display: block;
     width: 70%;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.25rem;
+}
+
+/* Register & Login */
+.form-container {
+    width: 60vw;
+    height: 50vh;
+    margin: 5rem auto;
+    text-align: center;
+    background-color: #282828;
+    border: 1px solid #0e0e0e;
+    -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.form-container h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    margin: 0.5rem 0;
+}
+
+.form-group input[type='text'] {
+    width: 50%;
     border-radius: 10px;
     border: none;
     font-size: 1.5rem;
