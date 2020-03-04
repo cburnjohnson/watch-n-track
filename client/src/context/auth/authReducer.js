@@ -1,4 +1,9 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../types';
+import {
+    REGISTER_FAIL,
+    REGISTER_SUCCESS,
+    USER_LOADED,
+    AUTH_ERROR
+} from '../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -17,6 +22,12 @@ export default (state, action) => {
                 isAuthenticated: false,
                 user: null,
                 error: action.payload
+            };
+        case USER_LOADED:
+            return {
+                ...state,
+                isAuthenticated: true,
+                user: action.payload
             };
         default: {
             return state;
