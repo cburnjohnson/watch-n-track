@@ -16,11 +16,11 @@ const TvShows = ({ quantity }) => {
     return (
         <Collapsible trigger={`TV Shows (${quantity})`}>
             <TvShowForm />
-            <div className="shows-grid-container">
-                <h2 className="watched-list-title">Name</h2>
-                <h2 className="watched-list-title">Season</h2>
-                <h2 className="watched-list-title">Episode</h2>
-                <span></span>
+            <div className='shows-grid-container'>
+                <h2 className='watched-list-title'>Name</h2>
+                <h2 className='watched-list-title'>Season</h2>
+                <h2 className='watched-list-title'>Episode</h2>
+                <span className='watched-list-title'></span>
 
                 {filtered !== null
                     ? filtered.map(filteredTvShow => (

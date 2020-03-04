@@ -16,11 +16,11 @@ const Anime = ({ quantity }) => {
     return (
         <Collapsible trigger={`Anime (${quantity})`}>
             <AnimeForm />
-            <div className="shows-grid-container">
-                <span>Name</span>
-                <span>Season</span>
-                <span>Episode</span>
-                <span></span>
+            <div className='shows-grid-container'>
+                <h2 className='watched-list-title'>Name</h2>
+                <h2 className='watched-list-title'>Season</h2>
+                <h2 className='watched-list-title'>Episode</h2>
+                <span className='watched-list-title'></span>
 
                 {filtered !== null
                     ? filtered.map(animeItem => (
