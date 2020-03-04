@@ -7,7 +7,9 @@ import {
     REGISTER_FAIL,
     REGISTER_SUCCESS,
     USER_LOADED,
-    AUTH_ERROR
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL
 } from '../types';
 
 const AuthState = props => {
@@ -60,8 +62,25 @@ const AuthState = props => {
     };
 
     // Login User
-    const login = async () => {
-        console.log('login');
+    const login = async formData => {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+
+            const res = await axios.post('/api/auth', formData, config);
+
+            console.log(res);
+
+            // dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+        } catch (err) {
+            dispatch({
+                type: LOGIN_FAIL,
+                payload: err.response.data.msg
+            });
+        }
     };
 
     // Logout
