@@ -3,7 +3,6 @@ import AuthContext from './authContext';
 import authReducer from './authReducer';
 import axios from 'axios';
 import { REGISTER_FAIL, REGISTER_SUCCESS } from '../types';
-axios.defaults.baseURL = 'http://localhost:5000';
 
 const AuthState = props => {
     const initialState = {
