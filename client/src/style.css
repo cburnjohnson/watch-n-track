@@ -219,10 +219,9 @@ nav ul li a:hover {
 /* Register & Login */
 .form-container {
     width: 60vw;
-    height: 60vh;
     margin: 5rem auto;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 10px;
     background-color: #282828;
     border: 1px solid #0e0e0e;
@@ -266,7 +265,6 @@ nav ul li a:hover {
     font-size: 1.5rem;
     padding: 0.5rem 0.75rem;
     margin-top: 1rem;
-    width: 15%;
     background-color: #00aaff;
     border: none;
     color: #fff;
