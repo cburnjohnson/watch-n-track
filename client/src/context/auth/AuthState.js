@@ -8,7 +8,8 @@ const AuthState = props => {
     const initialState = {
         token: localStorage.getItem('token'),
         isAuthenticated: null,
-        user: null
+        user: null,
+        error: null
     };
 
     const [state, dispatch] = useReducer(authReducer, initialState);
@@ -34,11 +35,10 @@ const AuthState = props => {
                 payload: res.data
             });
         } catch (err) {
-            console.log(err);
-            // dispatch({
-            //     type: REGISTER_FAIL,
-            //     payload: err.response.data.msg
-            // });
+            dispatch({
+                type: REGISTER_FAIL,
+                payload: err.response.data.msg
+            });
         }
     };
 
@@ -58,6 +58,7 @@ const AuthState = props => {
                 token: state.token,
                 isAuthenticated: state.isAuthenticated,
                 user: state.user,
+                error: state.error,
                 loadUser,
                 register,
                 login,
