@@ -9,6 +9,11 @@ import {
 
 export default (state, action) => {
     switch (action.type) {
+        case GET_MOVIES:
+            return {
+                ...state,
+                loading: false
+            };
         case ADD_MOVIE:
             return {
                 ...state,

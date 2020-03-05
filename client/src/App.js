@@ -11,6 +11,11 @@ import AuthState from './context/auth/AuthState';
 import MovieState from './context/movie/MovieState';
 import TvShowState from './context/tvshow/TvShowState';
 import AnimeState from './context/anime/AnimeState';
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+    setAuthToken(localStorage.token);
+}
 
 function App() {
     return (

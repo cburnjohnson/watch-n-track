@@ -33,7 +33,7 @@ const MovieState = props => {
 
     // Get Movies
     const getMovies = () => {
-        console.log('get movies');
+        dispatch({ type: GET_MOVIES });
     };
 
     // Update Movie
