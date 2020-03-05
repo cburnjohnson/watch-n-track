@@ -9,31 +9,43 @@ import {
     UPDATE_MOVIE,
     DELETE_MOVIE,
     FILTER,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    REQUEST_ERROR
 } from '../types';
 
 const MovieState = props => {
     const initialState = {
-        movies: [
-            { _id: 1, name: 'Pickle Man' },
-            { _id: 2, name: 'Pickle Man 1' },
-            { _id: 3, name: 'Pickle Man 2' },
-            { _id: 4, name: 'Pickle Man 3' },
-            { _id: 5, name: 'Pickle Man 4' }
-        ],
+        movies: null,
         filtered: null
     };
 
     const [state, dispatch] = useReducer(movieReducer, initialState);
 
     // Add Movie
-    const addMovie = movie => {
-        dispatch({ type: ADD_MOVIE, payload: movie });
+    const addMovie = async movie => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+            const res = await axios.post('/api/movies', movie, config);
+            dispatch({ type: ADD_MOVIE, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Get Movies
-    const getMovies = () => {
-        dispatch({ type: GET_MOVIES });
+    const getMovies = async () => {
+        try {
+            const res = await axios.get('/api/movies');
+            console.log(res);
+            dispatch({ type: GET_MOVIES, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Update Movie

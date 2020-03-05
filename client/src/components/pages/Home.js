@@ -4,6 +4,8 @@ import Movies from '../movies/Movies';
 import TvShows from '../tvshows/TvShows';
 import Anime from '../anime/Anime';
 import SearchBar from '../layout/SearchBar';
+import Collapsible from 'react-collapsible';
+import MovieForm from '../movies/MovieForm';
 
 import AuthContext from '../../context/auth/authContext';
 import MovieContext from '../../context/movie/movieContext';
@@ -15,12 +17,13 @@ const Home = () => {
     const movieContext = useContext(MovieContext);
     const tvShowContext = useContext(TvShowContext);
     const animeContext = useContext(AnimeContext);
-    const { movies, filtered: filteredMovies } = movieContext;
+    const { movies, filtered: filteredMovies, getMovies } = movieContext;
     const { tvShows, filtered: filteredTvShows } = tvShowContext;
     const { anime, filtered: filteredAnime } = animeContext;
 
     useEffect(() => {
         authContext.loadUser();
+        getMovies();
         // eslint-disable-next-line
     }, []);
 
@@ -28,15 +31,23 @@ const Home = () => {
         <div>
             <SearchBar />
             <div className='watched-list'>
-                <Movies
-                    quantity={
-                        filteredMovies !== null ||
-                        filteredTvShows !== null ||
-                        filteredAnime !== null
-                            ? filteredMovies.length
-                            : movies.length
-                    }
-                />
+                {movies === null && !animeContext.loading ? (
+                    <Collapsible trigger={`Movies (0)`}>
+                        <MovieForm />
+                        <h3>Please add a Movie</h3>
+                    </Collapsible>
+                ) : (
+                    <Movies
+                        quantity={
+                            filteredMovies !== null ||
+                            filteredTvShows !== null ||
+                            filteredAnime !== null
+                                ? filteredMovies.length
+                                : movies.length
+                        }
+                    />
+                )}
+
                 <TvShows
                     quantity={
                         filteredMovies !== null ||

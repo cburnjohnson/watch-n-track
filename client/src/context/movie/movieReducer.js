@@ -4,7 +4,8 @@ import {
     UPDATE_MOVIE,
     DELETE_MOVIE,
     FILTER,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    REQUEST_ERROR
 } from '../types';
 
 export default (state, action) => {
@@ -12,12 +13,14 @@ export default (state, action) => {
         case GET_MOVIES:
             return {
                 ...state,
+                movies: action.payload,
                 loading: false
             };
         case ADD_MOVIE:
             return {
                 ...state,
-                movies: [action.payload, ...state.movies]
+                movies: [action.payload, ...state.movies],
+                loading: false
             };
         case DELETE_MOVIE:
             return {
@@ -45,6 +48,10 @@ export default (state, action) => {
             return {
                 ...state,
                 filtered: null
+            };
+        case REQUEST_ERROR:
+            return {
+                ...state
             };
         default:
             return state;

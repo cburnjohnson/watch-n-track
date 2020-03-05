@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
@@ -11,12 +11,7 @@ import MovieContext from '../../context/movie/movieContext';
 const Movies = ({ quantity }) => {
     const movieContext = useContext(MovieContext);
 
-    const { movies, filtered, getMovies, loading } = movieContext;
-
-    useEffect(() => {
-        getMovies();
-        // eslint-disable-next-line
-    }, []);
+    const { movies, filtered } = movieContext;
 
     return (
         <Collapsible trigger={`Movies (${quantity})`}>
