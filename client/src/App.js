@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
+import PrivateRoute from './components/auth/PrivateRoute';
 
 import AuthState from './context/auth/AuthState';
 import MovieState from './context/movie/MovieState';
@@ -20,7 +21,7 @@ function App() {
                         <Router>
                             <Navbar />
                             <Switch>
-                                <Route exact path='/' component={Home} />
+                                <PrivateRoute exact path='/' component={Home} />
                                 <Route
                                     exact
                                     path='/register'
