@@ -49,8 +49,23 @@ const MovieState = props => {
     };
 
     // Update Movie
-    const updateMovie = movie => {
-        dispatch({ type: UPDATE_MOVIE, payload: movie });
+    const updateMovie = async movie => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+            const res = await axios.put(
+                `/api/movies/${movie._id}`,
+                movie,
+                config
+            );
+            dispatch({ type: UPDATE_MOVIE, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Delete Movie
