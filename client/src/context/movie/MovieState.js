@@ -69,8 +69,13 @@ const MovieState = props => {
     };
 
     // Delete Movie
-    const deleteMovie = movieId => {
-        dispatch({ type: DELETE_MOVIE, payload: movieId });
+    const deleteMovie = async movieId => {
+        try {
+            await axios.delete(`/api/movies/${movieId}`);
+            dispatch({ type: DELETE_MOVIE, payload: movieId });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Filter Movies
