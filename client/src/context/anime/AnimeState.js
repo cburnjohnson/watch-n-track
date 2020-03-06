@@ -48,13 +48,33 @@ const AnimeState = props => {
     };
 
     // Update an Anime
-    const updateAnime = anime => {
-        dispatch({ type: UPDATE_ANIME, payload: anime });
+    const updateAnime = async anime => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+            const res = await axios.put(
+                `/api/anime/${anime._id}`,
+                anime,
+                config
+            );
+            dispatch({ type: UPDATE_ANIME, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Delete an Anime
-    const deleteAnime = animeId => {
-        dispatch({ type: DELETE_ANIME, payload: animeId });
+    const deleteAnime = async animeId => {
+        try {
+            await axios.delete(`/api/anime/${animeId}`);
+            dispatch({ type: DELETE_ANIME, payload: animeId });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Filter Anime
