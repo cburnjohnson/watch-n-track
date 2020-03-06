@@ -22,8 +22,19 @@ const AnimeState = props => {
     const [state, dispatch] = useReducer(animeReducer, initialState);
 
     // Add a new Anime
-    const addAnime = anime => {
-        dispatch({ type: ADD_ANIME, payload: anime });
+    const addAnime = async anime => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+            const res = await axios.post('/api/anime', anime, config);
+            dispatch({ type: ADD_ANIME, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Get all Anime
