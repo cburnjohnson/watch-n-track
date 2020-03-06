@@ -68,8 +68,13 @@ const TvShowState = props => {
     };
 
     // Delete TV Show
-    const deleteTvShow = tvShowId => {
-        dispatch({ type: DELETE_TV_SHOW, payload: tvShowId });
+    const deleteTvShow = async tvShowId => {
+        try {
+            await axios.delete(`/api/tvshows/${tvShowId}`);
+            dispatch({ type: DELETE_TV_SHOW, payload: tvShowId });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Filter TV Shows
