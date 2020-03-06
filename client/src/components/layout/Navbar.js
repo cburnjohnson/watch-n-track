@@ -18,7 +18,9 @@ const Navbar = () => {
                 <span className='highlight'> {user && user.name}</span>
             </li>
             <li>
-                <a onClick={onLogout}>Logout</a>
+                <a onClick={onLogout} href='# '>
+                    Logout
+                </a>
             </li>
         </>
     );

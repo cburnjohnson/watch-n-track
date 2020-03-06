@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 
 const Register = () => {
     const authContext = useContext(AuthContext);
 
-    const { register, isAuthenticated } = authContext;
+    const { register } = authContext;
 
     const [user, setUser] = useState({
         name: '',
