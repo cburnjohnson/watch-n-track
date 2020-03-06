@@ -23,8 +23,18 @@ const TvShowState = props => {
     const [state, dispatch] = useReducer(tvShowReducer, initialState);
 
     // Add TV Show
-    const addTvShow = tvShow => {
-        dispatch({ type: ADD_TV_SHOW, payload: tvShow });
+    const addTvShow = async tvShow => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            const res = await axios.post('/api/tvshows', tvShow, config);
+            dispatch({ type: ADD_TV_SHOW, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Get users TV shows
