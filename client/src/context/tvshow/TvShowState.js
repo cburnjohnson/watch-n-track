@@ -48,8 +48,23 @@ const TvShowState = props => {
     };
 
     // Update TV Show
-    const updateTvShow = tvShow => {
-        dispatch({ type: UPDATE_TV_SHOW, payload: tvShow });
+    const updateTvShow = async tvShow => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+            const res = await axios.put(
+                `/api/tvshows/${tvShow._id}`,
+                tvShow,
+                config
+            );
+            dispatch({ type: UPDATE_TV_SHOW, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Delete TV Show
