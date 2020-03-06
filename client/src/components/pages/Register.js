@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
 
-const Register = () => {
+const Register = props => {
     const authContext = useContext(AuthContext);
 
-    const { register } = authContext;
+    const { register, isAuthenticated } = authContext;
 
     const [user, setUser] = useState({
         name: '',
@@ -14,6 +14,12 @@ const Register = () => {
     });
 
     const { name, email, password, password2 } = user;
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            props.history.push('/');
+        }
+    }, [isAuthenticated, props.history]);
 
     const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
