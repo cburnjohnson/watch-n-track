@@ -14,26 +14,7 @@ import {
 
 const TvShowState = props => {
     const initialState = {
-        tvShows: [
-            {
-                _id: 1,
-                name: 'Pickle TV SHOW',
-                season: '1',
-                episode: '12'
-            },
-            {
-                _id: 2,
-                name: 'Pickle TV SHOW',
-                season: '13',
-                episode: '12'
-            },
-            {
-                _id: 3,
-                name: 'Pickle TV SHOW',
-                season: '12',
-                episode: '19'
-            }
-        ],
+        tvShows: null,
         filtered: null
     };
 

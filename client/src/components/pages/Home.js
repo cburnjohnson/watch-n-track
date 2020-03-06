@@ -31,12 +31,14 @@ const Home = () => {
         <div>
             <SearchBar />
             <div className='watched-list'>
-                {movies === null && !animeContext.loading ? (
+                {movies !== null &&
+                movies.length === 0 &&
+                !authContext.loading ? (
                     <Collapsible trigger={`Movies (0)`}>
                         <MovieForm />
                         <h3>Please add a Movie</h3>
                     </Collapsible>
-                ) : (
+                ) : movies !== null && !authContext.loading ? (
                     <Movies
                         quantity={
                             filteredMovies !== null ||
@@ -46,17 +48,31 @@ const Home = () => {
                                 : movies.length
                         }
                     />
+                ) : (
+                    <h1>Loading</h1>
                 )}
 
-                <TvShows
-                    quantity={
-                        filteredMovies !== null ||
-                        filteredTvShows !== null ||
-                        filteredAnime !== null
-                            ? filteredTvShows.length
-                            : tvShows.length
-                    }
-                />
+                {tvShows !== null &&
+                tvShows.length === 0 &&
+                !authContext.loading ? (
+                    <Collapsible trigger={`Movies (0)`}>
+                        <MovieForm />
+                        <h3>Please add a Movie</h3>
+                    </Collapsible>
+                ) : tvShows !== null && !authContext.loading ? (
+                    <TvShows
+                        quantity={
+                            filteredMovies !== null ||
+                            filteredTvShows !== null ||
+                            filteredAnime !== null
+                                ? filteredTvShows.length
+                                : tvShows.length
+                        }
+                    />
+                ) : (
+                    <h1>Loading</h1>
+                )}
+
                 <Anime
                     quantity={
                         filteredMovies !== null ||
