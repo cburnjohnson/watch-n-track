@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import AnimeContext from './animeContext';
 import animeReducer from './animeReducer';
+import axios from 'axios';
 
 import {
     ADD_ANIME,
@@ -8,17 +9,13 @@ import {
     UPDATE_ANIME,
     DELETE_ANIME,
     FILTER,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    REQUEST_ERROR
 } from '../types';
 
 const AnimeState = props => {
     const initialState = {
-        anime: [
-            { _id: 1, name: 'ANIMEE', season: '1', episode: '13' },
-            { _id: 2, name: 'ANIMEE', season: '2', episode: '13' },
-            { _id: 3, name: 'ANIMEE', season: '13', episode: '13' },
-            { _id: 4, name: 'ANIMEE', season: '14', episode: '13' }
-        ],
+        anime: null,
         filtered: null
     };
 
@@ -30,8 +27,13 @@ const AnimeState = props => {
     };
 
     // Get all Anime
-    const getAnime = () => {
-        console.log('adde');
+    const getAnime = async () => {
+        try {
+            const res = await axios.get('/api/anime');
+            dispatch({ type: GET_ANIME, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Update an Anime

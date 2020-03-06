@@ -7,6 +7,7 @@ import SearchBar from '../layout/SearchBar';
 import Collapsible from 'react-collapsible';
 import MovieForm from '../movies/MovieForm';
 import TvShowForm from '../tvshows/TvShowForm';
+import AnimeForm from '../anime/AnimeForm';
 
 import AuthContext from '../../context/auth/authContext';
 import MovieContext from '../../context/movie/movieContext';
@@ -20,12 +21,13 @@ const Home = () => {
     const animeContext = useContext(AnimeContext);
     const { movies, filtered: filteredMovies, getMovies } = movieContext;
     const { tvShows, filtered: filteredTvShows, getTvShows } = tvShowContext;
-    const { anime, filtered: filteredAnime } = animeContext;
+    const { anime, filtered: filteredAnime, getAnime } = animeContext;
 
     useEffect(() => {
         authContext.loadUser();
         getMovies();
         getTvShows();
+        getAnime();
         // eslint-disable-next-line
     }, []);
 
@@ -75,15 +77,26 @@ const Home = () => {
                     <h1>Loading</h1>
                 )}
 
-                <Anime
-                    quantity={
-                        filteredMovies !== null ||
-                        filteredTvShows !== null ||
-                        filteredAnime !== null
-                            ? filteredAnime.length
-                            : anime.length
-                    }
-                />
+                {anime !== null &&
+                anime.length === 0 &&
+                !authContext.loading ? (
+                    <Collapsible trigger={`Anime (0)`}>
+                        <AnimeForm />
+                        <h3>Please add an Anime</h3>
+                    </Collapsible>
+                ) : anime !== null && !authContext.loading ? (
+                    <Anime
+                        quantity={
+                            filteredMovies !== null ||
+                            filteredTvShows !== null ||
+                            filteredAnime !== null
+                                ? filteredAnime.length
+                                : anime.length
+                        }
+                    />
+                ) : (
+                    <h1>Loading</h1>
+                )}
             </div>
         </div>
     );
