@@ -41,7 +41,6 @@ const MovieState = props => {
     const getMovies = async () => {
         try {
             const res = await axios.get('/api/movies');
-            console.log(res);
             dispatch({ type: GET_MOVIES, payload: res.data });
         } catch (err) {
             dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
