@@ -1,29 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import AuthContext from '../../context/auth/authContext';
+
 const Navbar = () => {
+    const authContext = useContext(AuthContext);
+
+    const { logout, user, isAuthenticated } = authContext;
+
     const onLogout = () => {
-        console.log('logged out');
+        logout();
     };
+
+    const authLinks = (
+        <>
+            <li>
+                <span className='highlight'> {user && user.name}</span>
+            </li>
+            <li>
+                <a onClick={onLogout}>Logout</a>
+            </li>
+        </>
+    );
+
+    const guestLinks = (
+        <>
+            <li>
+                <Link to='/register'>Register</Link>
+            </li>
+            <li>
+                <Link to='/login'>Login</Link>
+            </li>
+        </>
+    );
 
     return (
         <nav>
             <h1>
                 <i className='far fa-file-video'></i>
-                Watch <span>N</span> Track
+                Watch <span className='highlight'>N</span> Track
             </h1>
 
-            <ul>
-                <li>
-                    <Link to='/register'>Register</Link>
-                </li>
-                <li>
-                    <Link to='/login'>Login</Link>
-                </li>
-                <li>
-                    <a onClick={onLogout}>Logout</a>
-                </li>
-            </ul>
+            <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
         </nav>
     );
 };
