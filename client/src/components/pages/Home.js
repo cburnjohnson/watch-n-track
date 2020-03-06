@@ -6,6 +6,7 @@ import Anime from '../anime/Anime';
 import SearchBar from '../layout/SearchBar';
 import Collapsible from 'react-collapsible';
 import MovieForm from '../movies/MovieForm';
+import TvShowForm from '../tvshows/TvShowForm';
 
 import AuthContext from '../../context/auth/authContext';
 import MovieContext from '../../context/movie/movieContext';
@@ -18,12 +19,13 @@ const Home = () => {
     const tvShowContext = useContext(TvShowContext);
     const animeContext = useContext(AnimeContext);
     const { movies, filtered: filteredMovies, getMovies } = movieContext;
-    const { tvShows, filtered: filteredTvShows } = tvShowContext;
+    const { tvShows, filtered: filteredTvShows, getTvShows } = tvShowContext;
     const { anime, filtered: filteredAnime } = animeContext;
 
     useEffect(() => {
         authContext.loadUser();
         getMovies();
+        getTvShows();
         // eslint-disable-next-line
     }, []);
 
@@ -55,8 +57,8 @@ const Home = () => {
                 {tvShows !== null &&
                 tvShows.length === 0 &&
                 !authContext.loading ? (
-                    <Collapsible trigger={`Movies (0)`}>
-                        <MovieForm />
+                    <Collapsible trigger={`TV Shows (0)`}>
+                        <TvShowForm />
                         <h3>Please add a Movie</h3>
                     </Collapsible>
                 ) : tvShows !== null && !authContext.loading ? (

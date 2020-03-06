@@ -9,8 +9,10 @@ import {
     UPDATE_TV_SHOW,
     DELETE_TV_SHOW,
     FILTER,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    REQUEST_ERROR
 } from '../types';
+import axios from 'axios';
 
 const TvShowState = props => {
     const initialState = {
@@ -26,8 +28,13 @@ const TvShowState = props => {
     };
 
     // Get users TV shows
-    const getTvShows = () => {
-        console.log('get tv show');
+    const getTvShows = async () => {
+        try {
+            const res = await axios.get('/api/tvshows');
+            dispatch({ type: GET_TV_SHOWS, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err.response.msg });
+        }
     };
 
     // Update TV Show
