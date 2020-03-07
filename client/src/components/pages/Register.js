@@ -26,7 +26,7 @@ const Register = props => {
             setAlert(error, 'danger');
             clearErrors();
         }
-    }, [error, isAuthenticated, props.history]);
+    }, [error, isAuthenticated, props.history, setAlert, clearErrors]);
 
     const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
