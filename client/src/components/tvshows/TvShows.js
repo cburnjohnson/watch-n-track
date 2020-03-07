@@ -22,13 +22,17 @@ const TvShows = ({ quantity }) => {
                 <h2 className='watched-list-title'>Episode</h2>
                 <span className='watched-list-title'></span>
 
-                {filtered !== null
-                    ? filtered.map(filteredTvShow => (
-                          <TvShow tvShow={filteredTvShow} key={uuidv4()} />
-                      ))
-                    : tvShows.map(tvShow => (
-                          <TvShow tvShow={tvShow} key={uuidv4()} />
-                      ))}
+                {tvShows !== null && tvShows.length === 0 ? (
+                    <h3>Please add a Movie</h3>
+                ) : filtered !== null ? (
+                    filtered.map(filteredTvShow => (
+                        <TvShow tvShow={filteredTvShow} key={uuidv4()} />
+                    ))
+                ) : (
+                    tvShows.map(tvShow => (
+                        <TvShow tvShow={tvShow} key={uuidv4()} />
+                    ))
+                )}
             </div>
         </Collapsible>
     );

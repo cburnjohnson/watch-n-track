@@ -56,14 +56,7 @@ const Home = () => {
                     <h1>Loading</h1>
                 )}
 
-                {tvShows !== null &&
-                tvShows.length === 0 &&
-                !authContext.loading ? (
-                    <Collapsible trigger={`TV Shows (0)`}>
-                        <TvShowForm />
-                        <h3>Please add a Movie</h3>
-                    </Collapsible>
-                ) : tvShows !== null && !authContext.loading ? (
+                {tvShows !== null && !authContext.loading ? (
                     <TvShows
                         quantity={
                             filteredMovies !== null ||
