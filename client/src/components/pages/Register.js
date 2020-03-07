@@ -1,10 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const Register = props => {
     const authContext = useContext(AuthContext);
+    const alertContext = useContext(AlertContext);
 
-    const { register, isAuthenticated } = authContext;
+    const { register, isAuthenticated, error, clearErrors } = authContext;
+    const { setAlert } = alertContext;
 
     const [user, setUser] = useState({
         name: '',
@@ -19,7 +22,11 @@ const Register = props => {
         if (isAuthenticated) {
             props.history.push('/');
         }
-    }, [isAuthenticated, props.history]);
+        if (error !== null) {
+            setAlert(error, 'danger');
+            clearErrors();
+        }
+    }, [error, isAuthenticated, props.history]);
 
     const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
