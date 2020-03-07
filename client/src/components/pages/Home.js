@@ -35,14 +35,7 @@ const Home = () => {
         <div>
             <SearchBar />
             <div className='watched-list'>
-                {movies !== null &&
-                movies.length === 0 &&
-                !authContext.loading ? (
-                    <Collapsible trigger={`Movies (0)`}>
-                        <MovieForm />
-                        <h3>Please add a Movie</h3>
-                    </Collapsible>
-                ) : movies !== null && !authContext.loading ? (
+                {movies !== null && !authContext.loading ? (
                     <Movies
                         quantity={
                             filteredMovies !== null ||

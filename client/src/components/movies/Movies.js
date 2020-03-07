@@ -16,15 +16,19 @@ const Movies = ({ quantity }) => {
     return (
         <Collapsible trigger={`Movies (${quantity})`}>
             <MovieForm />
-            <ul>
-                {filtered !== null
-                    ? filtered.map(movie => (
-                          <Movie movie={movie} key={uuidv4()} />
-                      ))
-                    : movies.map(movie => (
-                          <Movie movie={movie} key={uuidv4()} />
-                      ))}
-            </ul>
+            {movies !== null && movies.length === 0 ? (
+                <h3>Please add a Movie</h3>
+            ) : (
+                <ul>
+                    {filtered !== null
+                        ? filtered.map(movie => (
+                              <Movie movie={movie} key={uuidv4()} />
+                          ))
+                        : movies.map(movie => (
+                              <Movie movie={movie} key={uuidv4()} />
+                          ))}
+                </ul>
+            )}
         </Collapsible>
     );
 };

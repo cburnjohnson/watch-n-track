@@ -23,7 +23,7 @@ const TvShows = ({ quantity }) => {
                 <span className='watched-list-title'></span>
 
                 {tvShows !== null && tvShows.length === 0 ? (
-                    <h3>Please add a Movie</h3>
+                    <h3>Please add a TV show</h3>
                 ) : filtered !== null ? (
                     filtered.map(filteredTvShow => (
                         <TvShow tvShow={filteredTvShow} key={uuidv4()} />

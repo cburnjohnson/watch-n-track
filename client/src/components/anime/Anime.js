@@ -23,7 +23,7 @@ const Anime = ({ quantity }) => {
                 <span className='watched-list-title'></span>
 
                 {anime !== null && anime.length === 0 ? (
-                    <h3>Please add an Anime</h3>
+                    <h3>Please add a Anime</h3>
                 ) : filtered !== null ? (
                     filtered.map(animeItem => (
                         <AnimeItem anime={animeItem} key={uuidv4()} />
