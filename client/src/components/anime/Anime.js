@@ -22,13 +22,17 @@ const Anime = ({ quantity }) => {
                 <h2 className='watched-list-title'>Episode</h2>
                 <span className='watched-list-title'></span>
 
-                {filtered !== null
-                    ? filtered.map(animeItem => (
-                          <AnimeItem anime={animeItem} key={uuidv4()} />
-                      ))
-                    : anime.map(animeItem => (
-                          <AnimeItem anime={animeItem} key={uuidv4()} />
-                      ))}
+                {anime !== null && anime.length === 0 ? (
+                    <h3>Please add an Anime</h3>
+                ) : filtered !== null ? (
+                    filtered.map(animeItem => (
+                        <AnimeItem anime={animeItem} key={uuidv4()} />
+                    ))
+                ) : (
+                    anime.map(animeItem => (
+                        <AnimeItem anime={animeItem} key={uuidv4()} />
+                    ))
+                )}
             </div>
         </Collapsible>
     );

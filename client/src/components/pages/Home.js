@@ -77,14 +77,7 @@ const Home = () => {
                     <h1>Loading</h1>
                 )}
 
-                {anime !== null &&
-                anime.length === 0 &&
-                !authContext.loading ? (
-                    <Collapsible trigger={`Anime (0)`}>
-                        <AnimeForm />
-                        <h3>Please add an Anime</h3>
-                    </Collapsible>
-                ) : anime !== null && !authContext.loading ? (
+                {anime !== null && !authContext.loading ? (
                     <Anime
                         quantity={
                             filteredMovies !== null ||
