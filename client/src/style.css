@@ -161,6 +161,7 @@ ul li {
 
 /* Navbar */
 nav {
+    margin-bottom: 5rem;
     height: 4rem;
     background-color: #282828;
     display: flex;
@@ -226,7 +227,7 @@ nav ul li a:hover {
 /* Register & Login */
 .form-container {
     width: 60vw;
-    margin: 5rem auto;
+    margin: 0 auto 5rem auto;
     text-align: center;
     padding: 1.5rem;
     border-radius: 10px;
@@ -283,4 +284,21 @@ nav ul li a:hover {
 .form-group input[type='submit']:hover {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     cursor: pointer;
+}
+
+/* Alerts */
+.alert {
+    font-size: 1.5rem;
+    padding: 18px;
+    background-color: #282828;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto 1rem auto;
+    border-radius: 10px;
+}
+
+.alert.alert-danger {
+    background-color: #d9534f;
 }
