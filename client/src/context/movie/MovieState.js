@@ -10,7 +10,8 @@ import {
     DELETE_MOVIE,
     FILTER,
     CLEAR_FILTER,
-    REQUEST_ERROR
+    REQUEST_ERROR,
+    CLEAR_STATE
 } from '../types';
 
 const MovieState = props => {
@@ -87,6 +88,11 @@ const MovieState = props => {
         dispatch({ type: CLEAR_FILTER });
     };
 
+    // Clear Movies from state
+    const clearMovies = () => {
+        dispatch({ type: CLEAR_STATE });
+    };
+
     return (
         <MovieContext.Provider
             value={{
@@ -97,7 +103,8 @@ const MovieState = props => {
                 updateMovie,
                 deleteMovie,
                 filterMovies,
-                clearMovieFilter
+                clearMovieFilter,
+                clearMovies
             }}
         >
             {props.children}

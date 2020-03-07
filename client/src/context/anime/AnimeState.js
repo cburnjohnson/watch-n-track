@@ -10,7 +10,8 @@ import {
     DELETE_ANIME,
     FILTER,
     CLEAR_FILTER,
-    REQUEST_ERROR
+    REQUEST_ERROR,
+    CLEAR_STATE
 } from '../types';
 
 const AnimeState = props => {
@@ -87,6 +88,11 @@ const AnimeState = props => {
         dispatch({ type: CLEAR_FILTER });
     };
 
+    // Clear Anime from state
+    const clearAnime = () => {
+        dispatch({ type: CLEAR_STATE });
+    };
+
     return (
         <AnimeContext.Provider
             value={{
@@ -97,7 +103,8 @@ const AnimeState = props => {
                 updateAnime,
                 deleteAnime,
                 filterAnime,
-                clearAnimeFilter
+                clearAnimeFilter,
+                clearAnime
             }}
         >
             {props.children}

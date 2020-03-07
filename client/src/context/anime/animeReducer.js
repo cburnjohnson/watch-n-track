@@ -4,7 +4,8 @@ import {
     UPDATE_ANIME,
     DELETE_ANIME,
     FILTER,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    CLEAR_STATE
 } from '../types';
 
 export default (state, action) => {
@@ -47,6 +48,12 @@ export default (state, action) => {
         case CLEAR_FILTER:
             return {
                 ...state,
+                filtered: null
+            };
+        case CLEAR_STATE:
+            return {
+                ...state,
+                anime: null,
                 filtered: null
             };
 

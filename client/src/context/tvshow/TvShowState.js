@@ -10,7 +10,8 @@ import {
     DELETE_TV_SHOW,
     FILTER,
     CLEAR_FILTER,
-    REQUEST_ERROR
+    REQUEST_ERROR,
+    CLEAR_STATE
 } from '../types';
 import axios from 'axios';
 
@@ -87,6 +88,11 @@ const TvShowState = props => {
         dispatch({ type: CLEAR_FILTER });
     };
 
+    // Clear TV shows from state
+    const clearTvShows = () => {
+        dispatch({ type: CLEAR_STATE });
+    };
+
     return (
         <TvShowContext.Provider
             value={{
@@ -97,7 +103,8 @@ const TvShowState = props => {
                 updateTvShow,
                 deleteTvShow,
                 filterTvShows,
-                clearTvShowFilter
+                clearTvShowFilter,
+                clearTvShows
             }}
         >
             {props.children}

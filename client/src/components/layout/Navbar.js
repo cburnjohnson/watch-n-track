@@ -2,14 +2,23 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth/authContext';
+import MovieContext from '../../context/movie/movieContext';
+import TvShowContext from '../../context/tvshow/tvShowContext';
+import AnimeContext from '../../context/anime/animeContext';
 
 const Navbar = () => {
     const authContext = useContext(AuthContext);
+    const movieContext = useContext(MovieContext);
+    const tvShowContext = useContext(TvShowContext);
+    const animeContext = useContext(AnimeContext);
 
     const { logout, user, isAuthenticated } = authContext;
 
     const onLogout = () => {
         logout();
+        movieContext.clearMovies();
+        tvShowContext.clearTvShows();
+        animeContext.clearAnime();
     };
 
     const authLinks = (

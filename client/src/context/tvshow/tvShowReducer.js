@@ -5,7 +5,8 @@ import {
     DELETE_TV_SHOW,
     FILTER,
     CLEAR_FILTER,
-    REQUEST_ERROR
+    REQUEST_ERROR,
+    CLEAR_STATE
 } from '../types';
 
 export default (state, action) => {
@@ -54,6 +55,12 @@ export default (state, action) => {
         case REQUEST_ERROR:
             return {
                 ...state
+            };
+        case CLEAR_STATE:
+            return {
+                ...state,
+                tvShows: null,
+                filtered: null
             };
         default:
             return state;
