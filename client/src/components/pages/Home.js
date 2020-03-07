@@ -9,6 +9,7 @@ import AuthContext from '../../context/auth/authContext';
 import MovieContext from '../../context/movie/movieContext';
 import TvShowContext from '../../context/tvshow/tvShowContext';
 import AnimeContext from '../../context/anime/animeContext';
+import Collapsible from 'react-collapsible';
 
 const Home = () => {
     const authContext = useContext(AuthContext);
@@ -42,7 +43,7 @@ const Home = () => {
                         }
                     />
                 ) : (
-                    <h1>Loading</h1>
+                    <Collapsible />
                 )}
 
                 {tvShows !== null && !authContext.loading ? (
@@ -56,7 +57,7 @@ const Home = () => {
                         }
                     />
                 ) : (
-                    <h1>Loading</h1>
+                    <Collapsible />
                 )}
 
                 {anime !== null && !authContext.loading ? (
@@ -70,7 +71,7 @@ const Home = () => {
                         }
                     />
                 ) : (
-                    <h1>Loading</h1>
+                    <Collapsible />
                 )}
             </div>
         </div>
