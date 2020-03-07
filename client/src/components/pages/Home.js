@@ -4,10 +4,6 @@ import Movies from '../movies/Movies';
 import TvShows from '../tvshows/TvShows';
 import Anime from '../anime/Anime';
 import SearchBar from '../layout/SearchBar';
-import Collapsible from 'react-collapsible';
-import MovieForm from '../movies/MovieForm';
-import TvShowForm from '../tvshows/TvShowForm';
-import AnimeForm from '../anime/AnimeForm';
 
 import AuthContext from '../../context/auth/authContext';
 import MovieContext from '../../context/movie/movieContext';
