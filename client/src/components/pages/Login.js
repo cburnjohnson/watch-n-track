@@ -1,14 +1,21 @@
 import React, { useContext, useState, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const Login = props => {
     const authContext = useContext(AuthContext);
+    const alertContext = useContext(AlertContext);
 
-    const { login, isAuthenticated } = authContext;
+    const { login, isAuthenticated, error, clearErrors } = authContext;
+    const { setAlert } = alertContext;
 
     useEffect(() => {
         if (isAuthenticated) {
             props.history.push('/');
+        }
+        if (error === 'Invalid Credentials') {
+            setAlert(error, 'danger');
+            clearErrors();
         }
     }, [isAuthenticated, props.history]);
 

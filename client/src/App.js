@@ -6,7 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
 import PrivateRoute from './components/auth/PrivateRoute';
-import Alert from './components/layout/Alerts';
+import Alerts from './components/layout/Alerts';
 
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
