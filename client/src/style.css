@@ -325,6 +325,10 @@ nav ul li a:hover {
         width: 90%;
     }
 
+    .list-form input[type='number'] {
+        font-size: 1.25rem;
+    }
+
     .form-container {
         width: 80vw;
     }
@@ -342,5 +346,64 @@ nav ul li a:hover {
     nav ul li {
         font-size: 1.25rem;
         margin: 0 1rem 0 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .watched-list {
+        width: 100%;
+        border-right: none;
+        border-left: none;
+    }
+
+    .list-form input[type='number'] {
+        font-size: 1.25rem;
+    }
+
+    .form-container {
+        width: 100%;
+        border-right: none;
+        border-left: none;
+        margin-bottom: 3rem;
+    }
+
+    .form-container h1 {
+        font-size: 2rem;
+    }
+
+    .form-group label {
+        font-size: 1.5rem;
+    }
+
+    .form-group input[type='email'],
+    .form-group input[type='password'],
+    .form-group input[type='text'] {
+        width: 100%;
+    }
+
+    .flex-form.login-form {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    nav h1 {
+        font-size: 1.25rem;
+    }
+
+    nav ul li {
+        font-size: 0.9rem;
+        margin: 0 1rem 0 0;
+    }
+
+    .Collapsible__contentInner {
+        font-size: 1.25rem;
+    }
+
+    .watched-list-title {
+        font-size: 1.5rem;
+    }
+
+    .search-bar {
+        width: 90%;
     }
 }
