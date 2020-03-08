@@ -4,6 +4,7 @@ import Movies from '../movies/Movies';
 import TvShows from '../tvshows/TvShows';
 import Anime from '../anime/Anime';
 import SearchBar from '../layout/SearchBar';
+import Spinner from '../layout/Spinner';
 
 import AuthContext from '../../context/auth/authContext';
 import MovieContext from '../../context/movie/movieContext';
@@ -43,7 +44,7 @@ const Home = () => {
                         }
                     />
                 ) : (
-                    <Collapsible />
+                    <Collapsible trigger={<Spinner />}></Collapsible>
                 )}
 
                 {tvShows !== null && !authContext.loading ? (
@@ -57,7 +58,7 @@ const Home = () => {
                         }
                     />
                 ) : (
-                    <Collapsible />
+                    <Collapsible trigger={<Spinner />}></Collapsible>
                 )}
 
                 {anime !== null && !authContext.loading ? (
@@ -71,7 +72,7 @@ const Home = () => {
                         }
                     />
                 ) : (
-                    <Collapsible />
+                    <Collapsible trigger={<Spinner />}></Collapsible>
                 )}
             </div>
         </div>

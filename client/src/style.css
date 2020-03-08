@@ -301,4 +301,5 @@ nav ul li a:hover {
 
 .alert.alert-danger {
     background-color: #d9534f;
+    border: 2px solid #81302d;
 }
