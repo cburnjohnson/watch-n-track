@@ -90,6 +90,7 @@ const AnimeItem = ({ anime }) => {
                 onFocus={onFocus}
                 onInput={onInput}
                 data-info='name'
+                className='show-info'
             >
                 {name}
             </span>
@@ -99,6 +100,7 @@ const AnimeItem = ({ anime }) => {
                 onFocus={onFocus}
                 onInput={onInput}
                 data-info='season'
+                className='show-info'
             >
                 {season}
             </span>
@@ -108,10 +110,11 @@ const AnimeItem = ({ anime }) => {
                 onFocus={onFocus}
                 onInput={onInput}
                 data-info='episode'
+                className='show-info'
             >
                 {episode}
             </span>
-            <div>
+            <div className='show-info'>
                 <i className='edit-icon fas fa-edit' onClick={onUpdate}></i>
                 <i className='delete-icon fas fa-trash' onClick={onDelete}></i>
             </div>
