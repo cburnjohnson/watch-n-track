@@ -17,6 +17,10 @@ const Login = props => {
             setAlert(error, 'danger');
             clearErrors();
         }
+        if (error === 'User is not found') {
+            setAlert(error, 'danger');
+            clearErrors();
+        }
     }, [error, isAuthenticated, props.history, setAlert, clearErrors]);
 
     const [loginInfo, setLoginInfo] = useState({
