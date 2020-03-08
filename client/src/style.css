@@ -391,7 +391,7 @@ nav ul li a:hover {
     }
 
     nav ul li {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin: 0 1rem 0 0;
     }
 
@@ -405,5 +405,13 @@ nav ul li a:hover {
 
     .search-bar {
         width: 90%;
+    }
+
+    .nav-title {
+        display: none;
+    }
+
+    nav h1 i {
+        font-size: 2rem;
     }
 }

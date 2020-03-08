@@ -49,7 +49,9 @@ const Navbar = () => {
         <nav>
             <h1>
                 <i className='far fa-file-video'></i>
-                Watch <span className='highlight'>N</span> Track
+                <span className='nav-title'>
+                    Watch <span className='highlight'>N</span> Track
+                </span>
             </h1>
 
             <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
