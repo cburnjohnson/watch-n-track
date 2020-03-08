@@ -50,7 +50,7 @@ const Movie = ({ movie }) => {
     };
 
     return (
-        <li>
+        <li className='movie-item'>
             <span
                 onInput={onInput}
                 onFocus={onFocus}
