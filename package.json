@@ -1,7 +1,7 @@
 {
     "name": "watch-n-track",
     "version": "1.0.0",
-    "description": "",
+    "description": "Track what movies, TV shows, and anime you've watched!",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
