@@ -38,6 +38,12 @@ input[type='email']:focus {
     color: #00aaff;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    font-size: 1.25rem;
+}
+
 /* List Styling */
 .watched-list {
     margin: 0 auto 4rem auto;
