@@ -35,9 +35,12 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const { email, password } = req.body;
+        let { email, password } = req.body;
 
         try {
+            if (email) {
+                email = email.toLowerCase();
+            }
             let user = await User.findOne({ email });
 
             if (!user) {
