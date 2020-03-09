@@ -32,11 +32,16 @@ const Register = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-        register({
-            name,
-            email,
-            password
-        });
+        if (password !== password2) {
+            setAlert('Passwords must match', 'danger');
+            return;
+        } else {
+            register({
+                name,
+                email,
+                password
+            });
+        }
     };
 
     return (
