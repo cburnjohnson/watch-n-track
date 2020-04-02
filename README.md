@@ -1,6 +1,6 @@
 # Watch N Track
 
-#### MERN Full Stack application that tracks what TV Shows/Animes/Movies you've watched.
+#### MERN Stack application that tracks what TV Shows/Animes/Movies you've watched.
 
 ##### Deployed Version: https://watchntrack.herokuapp.com/
 
